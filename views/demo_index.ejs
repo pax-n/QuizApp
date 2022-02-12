@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="p-3 mb-3 border-bottom">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
+          >
+            <img src="img/techquiz.png" alt="Tech Quiz" />
+            <span class="d-none d-lg-block">Tech Quiz</span>
+          </a>
+
+          <ul
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+          >
+            <li>
+              <a href="#" class="nav-link px-2 link-secondary">Public Quiz</a>
+            </li>
+            <li><a href="#" class="nav-link px-2 link-dark">Create</a></li>
+          </ul>
+
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-primary me-2">
+              Login
+            </button>
+            <button type="button" class="btn btn-primary">Sign-up</button>
+          </div>
+
+          <div class="dropdown text-end">
+            <a
+              href="#"
+              class="d-block link-dark text-decoration-none dropdown-toggle"
+              id="dropdownUser1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://github.com/mdo.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                class="rounded-circle"
+              />
+              User Name
+            </a>
+            <ul
+              class="dropdown-menu text-small"
+              aria-labelledby="dropdownUser1"
+            >
+              <li><a class="dropdown-item" href="#">Create</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+    <main>
+      <div class="container py-4">
+        <!-- Home Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Public Kazoots!</h4>
+          <div class="card">
+            <h5 class="card-header">Quiz Title</h5>
+            <div class="card-body">
+              <h5 class="card-title">Number of Questions: 5</h5>
+              <p class="card-text">
+                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
+                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
+                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
+                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
+                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
+                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
+                Quiz Info Quiz Info Quiz Info
+              </p>
+              <a href="#" class="btn btn-primary">Start Quiz</a>
+            </div>
+            <div class="card-footer text-muted">
+              Author: User Name
+              <a href="#" class="btn btn-primary">Share</a>
+              <a href="#" class="btn btn-primary">Attempt</a>
+            </div>
+          </div>
+        </div>
+        <!-- End Home Page -->
+
+        <!-- Quiz Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Quiz Title</h4>
+          <div class="card">
+            <h5 class="card-header">Questions: 1</h5>
+            <div class="card-body">
+              <p class="card-text">
+                Question Question Question Question Question Question Question
+              </p>
+            </div>
+            <div class="list-group list-group-flush">
+              <input
+                type="radio"
+                class="btn-check"
+                name="question1"
+                id="question1-1"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 text-start"
+                for="question1-1"
+                >Radio 1</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="question1"
+                id="question1-2"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 text-start"
+                for="question1-2"
+                >Radio 2</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="question1"
+                id="question1-3"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 text-start"
+                for="question1-3"
+                >Radio 3</label
+              >
+            </div>
+            <div class="card-footer text-muted">
+              Author: User Name
+              <a href="#" class="btn btn-primary">Share</a>
+              <a href="#" class="btn btn-primary">Attempt</a>
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          <div class="card">
+            <h5 class="card-header">Questions: 2</h5>
+            <div class="card-body">
+              <p class="card-text">
+                Question Question Question Question Question Question Question
+              </p>
+            </div>
+            <div class="list-group list-group-flush">
+              <input
+                type="radio"
+                class="btn-check"
+                name="question2"
+                id="question2-1"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 text-start"
+                for="question2-1"
+                >Radio 1</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="question2"
+                id="question2-2"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 text-start"
+                for="question2-2"
+                >Radio 2</label
+              >
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="question2"
+                id="question2-3"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 text-start"
+                for="question2-3"
+                >Radio 3</label
+              >
+            </div>
+            <div class="card-footer text-muted">
+              Author: User Name
+              <a href="#" class="btn btn-primary">Share</a>
+              <a href="#" class="btn btn-primary">Attempt</a>
+            </div>
+          </div>
+          <hr class="my-4" />
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">
+            Submit
+          </button>
+        </div>
+        <!-- End Quiz Page -->
+
+        <!-- Answer Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Quiz Title</h4>
+          <div class="card">
+            <h5 class="card-header">Questions: 1</h5>
+            <div class="card-body">
+              <p class="card-text">
+                Question Question Question Question Question Question Question
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item text-white bg-secondary bi bi-exclamation-circle"
+              >
+                Radio 1 Your Answer
+              </li>
+              <li class="list-group-item">Radio 2</li>
+              <li
+                class="list-group-item text-white bg-success bi bi-check-circle"
+              >
+                Radio 3 Correct Answer
+              </li>
+            </ul>
+            <div class="card-footer text-muted">
+              Author: User Name
+              <a href="#" class="btn btn-primary">Share</a>
+              <a href="#" class="btn btn-primary">Attempt</a>
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          <div class="card">
+            <h5 class="card-header">Questions: 2</h5>
+            <div class="card-body">
+              <p class="card-text">
+                Question Question Question Question Question Question Question
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item text-white bg-secondary bi bi-exclamation-circle"
+              >
+                Radio 1 Your Answer
+              </li>
+              <li class="list-group-item">Radio 2</li>
+              <li
+                class="list-group-item text-white bg-success bi bi-check-circle"
+              >
+                Radio 3 Correct Answer
+              </li>
+            </ul>
+            <div class="card-footer text-muted">
+              Author: User Name
+              <a href="#" class="btn btn-primary">Share</a>
+              <a href="#" class="btn btn-primary">Attempt</a>
+            </div>
+          </div>
+          <hr class="my-4" />
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">
+            Submit
+          </button>
+        </div>
+        <!-- End Answer Page -->
+
+        <!-- Creating Quiz -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Creat a Kazoot Quiz Now!</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="" class="form-label">Name your Kazoot!</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id=""
+                  placeholder="you@example.com"
+                  required
+                />
+                <div class="invalid-feedback">Your Kazoot is required.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="" class="form-label">About your Kazoot</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id=""
+                  placeholder=""
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  About your Kazoot is required
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <button class="btn btn-primary btn-lg">Next</button>
+
+            <button class="btn btn-danger btn-lg">Delete</button>
+          </form>
+        </div>
+        <!-- End Creating Quiz -->
+
+        <!-- Making The Quiz -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Question 1</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="" class="form-label">Question</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id=""
+                  placeholder=""
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Question is required</div>
+              </div>
+
+              <div class="col-12">
+                <label for="" class="form-label">Answer</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Answer"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Answer is required.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="" class="form-label">Option 1</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Option 1"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Option 1 is required.</div>
+              </div>
+              <div class="col-12">
+                <div class="input-group mb-3">
+                  <button class="btn btn-outline-danger" type="button">
+                    Delete
+                  </button>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Option"
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <a class="btn btn-secondary"> Add Option </a>
+              </div>
+            </div>
+            <hr class="my-4" />
+
+            <button class="btn btn-primary btn-lg">Add More Questions</button>
+
+            <button class="btn btn-primary btn-lg">Complete</button>
+
+            <button class="btn btn-danger btn-lg">Delete</button>
+          </form>
+        </div>
+        <!-- End Making The Quiz -->
+
+        <!-- Result Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Your Result!</h4>
+          <div class="card">
+            <h5 class="card-header">Quiz Title</h5>
+            <div class="card-body">
+              <h5 class="card-title">Number of Questions: 5</h5>
+              <p class="card-text">
+                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
+                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
+                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
+                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
+                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
+                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
+                Quiz Info Quiz Info Quiz Info
+              </p>
+              <a href="#" class="btn btn-primary">Start Quiz</a>
+            </div>
+            <div class="card-footer text-muted">
+              Author: User Name
+              <a href="#" class="btn btn-primary">Share Now</a>
+              <a href="#" class="btn btn-primary">Attempt</a>
+            </div>
+          </div>
+        </div>
+        <!-- End Result Page -->
+
+        <!-- Profile Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home"
+                type="button"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+              >
+                Overview
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile"
+                type="button"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+              >
+                Edit Profile
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="contact-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#contact"
+                type="button"
+                role="tab"
+                aria-controls="contact"
+                aria-selected="false"
+              >
+                Change Password
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content pt-2" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <h4 class="mb-3">Profile Details</h4>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 text-muted">Full Name</div>
+                <div class="col-lg-9 col-md-8">User Name</div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 text-muted">Email</div>
+                <div class="col-lg-9 col-md-8">you@example.com</div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="profile"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+            >
+              <h4 class="mb-3">Edit Profile</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder=""
+                      value=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Valid first name is required.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      placeholder=""
+                      value=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Valid last name is required.
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                    <div class="invalid-feedback">Your Email is required.</div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit">
+                  Update Profile
+                </button>
+              </form>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="contact"
+              role="tabpanel"
+              aria-labelledby="contact-tab"
+            >
+              <h4 class="mb-3">Change Password</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="password" class="form-label"
+                      >Current Password</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="password"
+                      placeholder=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your Current Password is required
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="password" class="form-label"
+                      >New Password</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="password"
+                      placeholder=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your New Password is required
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="password" class="form-label"
+                      >Re-enter New Password</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="password"
+                      placeholder=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your Re-enter New Password is required
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit">
+                  Change Password
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- End Profile Page -->
+
+        <!-- Sign Up Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Sign Up</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">First name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Last name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Valid last name is required.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="you@example.com"
+                  required
+                />
+                <div class="invalid-feedback">Your Email is required.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="password"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">Your Password is required</div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">
+              Sign Up
+            </button>
+          </form>
+        </div>
+        <!-- End Sign Up Page -->
+
+        <!-- Login Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Login</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="you@example.com"
+                  required
+                />
+                <div class="invalid-feedback">Your Email is required.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="password"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">Your Password is required</div>
+                <div id="emailHelp" class="form-text">
+                  <a href="">Forgot your password?</a>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+        <!-- End Login Page -->
+
+        <!-- Login Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Forgot Your Password</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="you@example.com"
+                  required
+                />
+                <div class="invalid-feedback">Your Email is required.</div>
+              </div>
+            </div>
+            <hr class="my-4" />
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+        <!-- End Login Page -->
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Only Form Validation -->
+    <script src="/scripts/form-validation.js"></script>
+  </body>
+</html>
