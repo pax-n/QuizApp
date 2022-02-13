@@ -7,7 +7,7 @@
 
 const express = require('express');
 const router = express.Router();
-const helper = require('../helper');
+// const helper = require('../helper');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
