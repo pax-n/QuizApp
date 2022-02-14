@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <%- include('partials/header.ejs') %>
+    <main>
+      <div class="container py-4">
+        <!-- Profile Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Your score</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Quiz Title</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td><a href="">Quiz Title</a></td>
+                <td>0/5</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td><a href="">Quiz Title</a></td>
+                <td>1/5</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td><a href="">Quiz Title</a></td>
+                <td>5/5</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home"
+                type="button"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+              >
+                Overview
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile"
+                type="button"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+              >
+                Edit Profile
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="quiz-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#quiz"
+                type="button"
+                role="tab"
+                aria-controls="quiz"
+                aria-selected="false"
+              >
+                Edit Quiz
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="contact-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#contact"
+                type="button"
+                role="tab"
+                aria-controls="contact"
+                aria-selected="false"
+              >
+                Change Password
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content pt-2" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <h4 class="mb-3">Profile Details</h4>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 text-muted">Full Name</div>
+                <div class="col-lg-9 col-md-8">User Name</div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 text-muted">Email</div>
+                <div class="col-lg-9 col-md-8">you@example.com</div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 text-muted">LinkedIn</div>
+                <div class="col-lg-9 col-md-8">
+                  <a href="https://www.linkedin.com/in/mikiyoshikokura/"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 text-muted">Github</div>
+                <div class="col-lg-9 col-md-8">
+                  <a href="https://github.com/mikiyoshi">
+                    <i class="bi bi-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="profile"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+            >
+              <h4 class="mb-3">Edit Profile</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder=""
+                      value=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Valid first name is required.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      placeholder=""
+                      value=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Valid last name is required.
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                    <div class="invalid-feedback">Your Email is required.</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">LinkedIn</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id=""
+                      placeholder="https://www.linkedin.com/in/YourName/"
+                    />
+                    <div class="invalid-feedback">Your LinkedIn is wrong</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">Github</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id=""
+                      placeholder="https://github.com/YourName"
+                    />
+                    <div class="invalid-feedback">Your Gothub is wrong</div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit">
+                  Update Profile
+                </button>
+              </form>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="quiz"
+              role="tabpanel"
+              aria-labelledby="quiz-tab"
+            >
+              <h4 class="mb-3">Edit Quiz</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Quiz Title</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td><a href="">Quiz Title</a></td>
+                    <td><a href="" class="btn btn-primary badge">Edit</a></td>
+                    <td><a href="" class="btn btn-danger badge">Delete</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>
+                      <a href=""
+                        >Quiz Title Quiz Title Quiz Title Quiz Title Quiz Title
+                        Quiz Title Quiz Title Quiz Title Quiz Title Quiz Title
+                        Quiz Title Quiz Title Quiz Title Quiz Title Quiz Title
+                        Quiz Title Quiz Title
+                      </a>
+                    </td>
+                    <td><a href="" class="btn btn-primary badge">Edit</a></td>
+                    <td><a href="" class="btn btn-danger badge">Delete</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td><a href="">Quiz Title</a></td>
+                    <td><a href="" class="btn btn-primary badge">Edit</a></td>
+                    <td><a href="" class="btn btn-danger badge">Delete</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="contact"
+              role="tabpanel"
+              aria-labelledby="contact-tab"
+            >
+              <h4 class="mb-3">Change Password</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="password" class="form-label"
+                      >Current Password</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="password"
+                      placeholder=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your Current Password is required
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="password" class="form-label"
+                      >New Password</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="password"
+                      placeholder=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your New Password is required
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="password" class="form-label"
+                      >Re-enter New Password</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="password"
+                      placeholder=""
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your Re-enter New Password is required
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit">
+                  Change Password
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- End Profile Page -->
+      </div>
+    </main>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Only Form Validation -->
+    <script src="/scripts/form-validation.js"></script>
+  </body>
+</html>

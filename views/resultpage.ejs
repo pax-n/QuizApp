@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <%- include('partials/header.ejs') %>
+    <main>
+      <div class="container py-4">
+        <!-- Answer Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Quiz Title</h4>
+          <div class="alert alert-success" role="alert">
+            <h2><i class="bi bi-award"></i> 0/5</h2>
+            <h4 class="alert-heading">Support Author[User Name]</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item list-group-item-success">
+                Follow Author[User Name]
+                <a href="Author[User Name]"><i class="bi bi-linkedin"></i></a>
+                <a href="Author[User Name]"><i class="bi bi-github"></i></a>
+              </li>
+              <li class="list-group-item list-group-item-success">
+                Write a letter of LinkedIn recommendation to the Author[User
+                Name]
+                <a href="Author[User Name]"><i class="bi bi-linkedin"></i></a>
+              </li>
+              <li class="list-group-item list-group-item-success">
+                Endorse the Author[User Name] skills.
+                <a href="" class="btn btn-primary badge">React.js</a>
+                <a href="" class="btn btn-primary badge">Node.js</a>
+                <a href="" class="btn btn-primary badge">Javascript</a>
+                <a href="" class="btn btn-primary badge">jQuery</a>
+                <a href="" class="btn btn-primary badge">SQL</a>
+                <a href="" class="btn btn-primary badge">SASS</a>
+              </li>
+            </ul>
+            <hr />
+            <h4 class="alert-heading">Request my skill</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item list-group-item-success">
+                Request LinkedIn Connection
+                <a href="Author[User Name]"><i class="bi bi-envelope"></i></a>
+              </li>
+              <li class="list-group-item list-group-item-success">
+                Request LinkedIn Recommendations
+                <a href="Author[User Name]"><i class="bi bi-envelope"></i></a>
+              </li>
+              <li class="list-group-item list-group-item-success">
+                Request LinkedIn skill endorse
+                <a href="my LinkedIn" class="btn btn-primary badge">React.js</a>
+                <a href="my LinkedIn" class="btn btn-primary badge">Node.js</a>
+                <a href="my LinkedIn" class="btn btn-primary badge"
+                  >Javascript</a
+                >
+                <a href="my LinkedIn" class="btn btn-primary badge">jQuery</a>
+                <a href="my LinkedIn" class="btn btn-primary badge">SQL</a>
+                <a href="my LinkedIn" class="btn btn-primary badge">SASS</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h5 class="card-header">Questions: 1</h5>
+            <div class="card-body">
+              <p class="card-text">
+                Question Question Question Question Question Question Question
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item text-white bg-secondary bi bi-exclamation-circle"
+              >
+                Radio 1 Your Answer
+              </li>
+              <li class="list-group-item">Radio 2</li>
+              <li
+                class="list-group-item text-white bg-success bi bi-check-circle"
+              >
+                Radio 3 Correct Answer
+              </li>
+            </ul>
+            <div class="card-footer text-muted">
+              <a href="">Author[User Name]</a>
+              <a href="#" class="btn btn-primary badge">Share</a>
+              <a href="#" class="btn btn-primary badge">Attempt</a>
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          <div class="card">
+            <h5 class="card-header">Questions: 2</h5>
+            <div class="card-body">
+              <p class="card-text">
+                Question Question Question Question Question Question Question
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item text-white bg-secondary bi bi-exclamation-circle"
+              >
+                Radio 1 Your Answer
+              </li>
+              <li class="list-group-item">Radio 2</li>
+              <li
+                class="list-group-item text-white bg-success bi bi-check-circle"
+              >
+                Radio 3 Correct Answer
+              </li>
+            </ul>
+            <div class="card-footer text-muted">
+              <a href="">Author[User Name]</a>
+              <a href="#" class="btn btn-primary badge">Share</a>
+              <a href="#" class="btn btn-primary badge">Attempt</a>
+            </div>
+          </div>
+          <hr class="my-4" />
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">
+            Submit
+          </button>
+        </div>
+        <!-- End Answer Page -->
+      </div>
+    </main>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Only Form Validation -->
+    <script src="/scripts/form-validation.js"></script>
+  </body>
+</html>
