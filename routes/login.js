@@ -19,6 +19,8 @@ module.exports = (db) => {
         let users = data.rows;
         console.log('GETtemplate', users[0]);
         const templateVars = users[0];
+        let loginId = users[0].id;
+        req.session['user_id'] = loginId;
         res.render('index', templateVars);
       })
       .catch((err) => {
