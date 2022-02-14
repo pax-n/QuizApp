@@ -18,7 +18,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(bodyParser.json());
 
 // security for password
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 // Cookie session
 const cookieSession = require('cookie-session');
@@ -64,6 +64,7 @@ const questionsRoutes = require('./routes/questions');
 const answersRoutes = require('./routes/answers');
 const attemptsRoutes = require('./routes/attempts');
 const loginRoutes = require('./routes/login');
+// const loginPostRoutes = require('./routes/login-post');
 const quizpageRoutes = require('./routes/quizpage');
 const resultpageRoutes = require('./routes/resultpage');
 const createquizRoutes = require('./routes/createquiz');
@@ -81,6 +82,7 @@ app.use('/api/questions', questionsRoutes(db));
 app.use('/api/answers', answersRoutes(db));
 app.use('/api/attempts', attemptsRoutes(db));
 app.use('/login', loginRoutes(db));
+// app.use('/login-post', urlencodedParser, loginPostRoutes(db));
 app.use('/quizpage', quizpageRoutes(db));
 app.use('/resultpage', resultpageRoutes(db));
 app.use('/createquiz', createquizRoutes(db));

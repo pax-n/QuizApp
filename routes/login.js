@@ -11,7 +11,19 @@ const router = express.Router();
 module.exports = (db) => {
   // GET /login
   router.get('/', (req, res) => {
-    res.render('login');
+    let query = `SELECT * FROM users`;
+    console.log(query);
+    db.query(query)
+      .then((data) => {
+        console.log(data);
+        let users = data.rows;
+        console.log('GETtemplate', users[0]);
+        const templateVars = users[0];
+        res.render('index', templateVars);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
   });
   return router;
 };
