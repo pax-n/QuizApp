@@ -72,6 +72,7 @@ const userRoutes = require('./routes/user');
 const registerRoutes = require('./routes/register');
 const resetRoutes = require('./routes/reset');
 const errorRoutes = require('./routes/error');
+const logoutRoutes = require('./routes/logout');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -90,6 +91,7 @@ app.use('/user', userRoutes(db));
 app.use('/register', registerRoutes(db));
 app.use('/reset', resetRoutes(db));
 app.use('/error', errorRoutes(db));
+app.use('/logout', logoutRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
