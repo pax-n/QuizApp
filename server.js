@@ -8,6 +8,28 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
+// Body parser
+const bodyParser = require('body-parser');
+
+// parse application/x-www-form-urlencoded
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+// parse application/json
+app.use(bodyParser.json());
+
+// security for password
+const bcrypt = require('bcryptjs');
+
+// Cookie session
+const cookieSession = require('cookie-session');
+
+app.use(
+  cookieSession({
+    name: 'session',
+    keys: ['key1', 'key2'],
+  })
+);
+
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -41,6 +63,7 @@ const quizzesRoutes = require('./routes/quizzes');
 const questionsRoutes = require('./routes/questions');
 const answersRoutes = require('./routes/answers');
 const attemptsRoutes = require('./routes/attempts');
+const loginRoutes = require('./routes/login');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -50,6 +73,7 @@ app.use('/api/quizzes', quizzesRoutes(db));
 app.use('/api/questions', questionsRoutes(db));
 app.use('/api/answers', answersRoutes(db));
 app.use('/api/attempts', attemptsRoutes(db));
+app.use('/login', loginRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -57,6 +81,7 @@ app.use('/api/attempts', attemptsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
+  console.log(req.session['user_id']);
   res.render('index');
 });
 
@@ -66,4 +91,14 @@ app.get('/demo_index', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
+});
+
+// User cookie session
+app.get('/login/:id', (req, res) => {
+  // cookie-session middleware
+  req.session.user_id = req.params.id;
+  // cookie-parser middleware
+  res.cookie('user_id', req.params.id);
+  // send the user somewhere
+  res.redirect('/');
 });
