@@ -112,23 +112,35 @@ app.get('/demo_index', (req, res) => {
 
 // User cookie session
 app.get('/login/:id', (req, res) => {
-  // cookie-session middleware
+  // cookie-session middleware // req.params.id is :id from '/login/:id'
   req.session.user_id = req.params.id;
   // cookie-parser middleware
   res.cookie('user_id', req.params.id);
   // send the user somewhere
-  let user_id = req.params.id;
+  // let user_id = req.params.id;
+
+  // how to get this ID from url
+  console.log('req.params', req.params);
+  const templateVars = {};
+  // write our query
+  // const command = `
+  // SELECT first_name, last_name, email
+  // FROM employees WHERE id = $1`;
+  let query = `SELECT * FROM users WHERE id = $1`;
+
+  const parameters = [req.params.id];
   //
-  let query = `SELECT * FROM users`;
-  db.query(query)
+  db.query(query, parameters)
     .then((data) => {
-      console.log(data);
-      let users = data.rows;
-      console.log('GETtemplate', users[user_id]);
-      const templateVars = {
-        user_id: user_id,
-        user: users[user_id],
-      };
+      // console.log(data);
+      // let users = data.rows;
+      // console.log('GETtemplate', users[user_id]);
+      // const templateVars = {
+      //   user_id: user_id,
+      //   user: users[user_id],
+      // };
+      templateVars.user = data.rows;
+      console.log(templateVars.user[0].name);
       res.render('index', templateVars);
     })
     .catch((err) => {
