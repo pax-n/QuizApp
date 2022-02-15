@@ -10,29 +10,20 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    // cookie-session middleware
-    console.log('XXXXXXX', req.session.user_id);
-    // // cookie-parser middleware
-    res.cookie('user_id', req.session.user_id);
-    // // send the user somewhere
-    let user_id = req.session.user_id;
-    // //
-    let query = `SELECT * FROM users`;
+    let query = `SELECT * FROM quizzes LEFT OUTER JOIN users ON quizzes.user_id = users.id`;
     db.query(query)
       .then((data) => {
-        console.log(data);
-        let users = data.rows;
-        console.log('GETtemplate', users[user_id]);
+        const quizzes = data;
+        console.log(quizzes);
         const templateVars = {
-          user_id: user_id,
-          user: users[user_id],
+          user_id: 1,
+          user: quizzes[0],
         };
-        res.render('register', templateVars);
+        res.render('index', templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-    // res.render('register');
   });
   return router;
 };

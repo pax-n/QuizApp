@@ -11,21 +11,24 @@ const router = express.Router();
 module.exports = (db) => {
   // GET /login
   router.get('/', (req, res) => {
-    let query = `SELECT * FROM users`;
-    console.log(query);
-    db.query(query)
-      .then((data) => {
-        console.log(data);
-        let users = data.rows;
-        console.log('GETtemplate', users[0]);
-        const templateVars = users[0];
-        let loginId = users[0].id;
-        req.session['user_id'] = loginId;
-        res.render('index', templateVars);
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
+    res.redirect('/login/1');
+    //   let query = `SELECT * FROM users`;
+    //   db.query(query)
+    //     .then((data) => {
+    //       console.log(data);
+    //       let users = data.rows;
+    //       console.log('GETtemplate', users[0]);
+    //       let loginId = users[0].id;
+    //       req.session['user_id'] = loginId;
+    //       const templateVars = {
+    //         user_id: 1,
+    //         user: users[0],
+    //       };
+    //       res.redirect(`/login/${user_id}`, templateVars);
+    //     })
+    //     .catch((err) => {
+    //       res.status(500).json({ error: err.message });
+    //     });
   });
   return router;
 };
