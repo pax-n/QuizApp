@@ -30,19 +30,15 @@
           <h4 class="mb-3">Public Kazoots!</h4>
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <!-- Quiz -->
+            <% for(let arr in quiz) { %>
             <div class="col">
               <div class="card">
-                <h5 class="card-header">Quiz Title</h5>
+                <h5 class="card-header"><%= quiz[arr].name %></h5>
                 <div class="card-body">
-                  <h5 class="card-title">Number of Questions: 5</h5>
+                  <h5 class="card-title"><%= quiz[arr].description %></h5>
                   <p class="card-text">
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
+                    <%= quiz[arr].id %> <%= quiz[arr].user_id %> <%=
+                    quiz[arr].isprivate %>
                   </p>
                   <a href="#" class="btn btn-primary">Start Quiz</a>
                 </div>
@@ -52,96 +48,7 @@
                 </div>
               </div>
             </div>
-            <!-- End Quiz -->
-
-            <!-- Quiz -->
-            <div class="col">
-              <div class="card">
-                <h5 class="card-header">Quiz Title</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Number of Questions: 5</h5>
-                  <p class="card-text">
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                  </p>
-                  <a href="#" class="btn btn-primary">Start Quiz</a>
-                </div>
-                <div class="card-footer text-muted">
-                  <a href="">Author[User Name]</a>
-                  <a href="#" class="btn btn-primary badge">Share</a>
-                </div>
-              </div>
-            </div>
-            <!-- End Quiz -->
-
-            <!-- Quiz -->
-            <div class="col">
-              <div class="card">
-                <h5 class="card-header">Quiz Title</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Number of Questions: 5</h5>
-                  <p class="card-text">
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                  </p>
-                  <a href="#" class="btn btn-primary">Start Quiz</a>
-                </div>
-                <div class="card-footer text-muted">
-                  <a href="">Author[User Name]</a>
-                  <a href="#" class="btn btn-primary badge">Share</a>
-                </div>
-              </div>
-            </div>
-            <!-- End Quiz -->
-
-            <!-- Quiz -->
-            <div class="col">
-              <div class="card">
-                <h5 class="card-header">Quiz Title</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Number of Questions: 5</h5>
-                  <p class="card-text">
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                  </p>
-                  <a href="#" class="btn btn-primary">Start Quiz</a>
-                </div>
-                <div class="card-footer text-muted">
-                  <a href="">Author[User Name]</a>
-                  <a href="#" class="btn btn-primary badge">Share</a>
-                </div>
-              </div>
-            </div>
-            <!-- End Quiz -->
-
-            <!-- Quiz -->
-            <div class="col">
-              <div class="card">
-                <h5 class="card-header">Quiz Title</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Number of Questions: 5</h5>
-                  <p class="card-text">
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                    Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                  </p>
-                  <a href="#" class="btn btn-primary">Start Quiz</a>
-                </div>
-                <div class="card-footer text-muted">
-                  <a href="">Author[User Name]</a>
-                  <a href="#" class="btn btn-primary badge">Share</a>
-                </div>
-              </div>
-            </div>
+            <% } %>
             <!-- End Quiz -->
           </div>
         </div>
