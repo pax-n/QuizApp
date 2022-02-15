@@ -93,6 +93,7 @@ app.use('/register', registerRoutes(db));
 app.use('/reset', resetRoutes(db));
 app.use('/error', errorRoutes(db));
 app.use('/logout', logoutRoutes(db));
+app.use('/', homeQuizRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -104,7 +105,7 @@ app.use('/logout', logoutRoutes(db));
 //   res.render('index');
 // });
 // Homepage receive all quiz routes
-app.use('/', homeQuizRoutes(db));
+
 
 app.get('/demo_index', (req, res) => {
   res.render('demo_index');

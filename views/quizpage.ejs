@@ -25,14 +25,16 @@
     <%- include('partials/header.ejs') %>
     <main>
       <div class="container py-4">
-        <!-- Quiz Page -->
+        <!-- <!-- Quiz Page -->
+
+        <% for(let question in questions) { %>
         <div class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Quiz Title</h4>
+          <h4 class="mb-3">Please choose your answers! </h4>
           <div class="card">
-            <h5 class="card-header">Questions: 1</h5>
+            <h5 class="card-header">Question number : <%= questions[question].id %></h5>
             <div class="card-body">
               <p class="card-text">
-                Question Question Question Question Question Question Question
+                Question <%= questions[question].question %>
               </p>
             </div>
             <div class="list-group list-group-flush">
@@ -40,13 +42,13 @@
                 type="radio"
                 class="btn-check"
                 name="question1"
-                id="question1-1"
+                id="question<%= questions[question].question_id %>-1"
                 autocomplete="off"
                 checked
               />
               <label
                 class="btn btn-outline-secondary rounded-0 text-start"
-                for="question1-1"
+                for="question<%= questions[question].question_id %>-1"
                 >Radio 1</label
               >
 
@@ -54,12 +56,12 @@
                 type="radio"
                 class="btn-check"
                 name="question1"
-                id="question1-2"
+                id="question<%= questions[question].question_id %>-2"
                 autocomplete="off"
               />
               <label
                 class="btn btn-outline-secondary rounded-0 text-start"
-                for="question1-2"
+                for="question<%= questions[question].question_id %>-2"
                 >Radio 2</label
               >
 
@@ -67,83 +69,41 @@
                 type="radio"
                 class="btn-check"
                 name="question1"
-                id="question1-3"
+                id="question<%= questions[question].question_id %>-3"
                 autocomplete="off"
               />
               <label
                 class="btn btn-outline-secondary rounded-0 text-start"
-                for="question1-3"
+                for="question<%= questions[question].question_id %>-3"
                 >Radio 3</label
               >
-            </div>
-            <div class="card-footer text-muted">
-              <a href="">Author[User Name]</a>
-              <a href="#" class="btn btn-primary badge">Share</a>
-              <a href="#" class="btn btn-primary badge">Attempt</a>
+
+              <input
+              type="radio"
+              class="btn-check"
+              name="question1"
+              id="question<%= questions[question].question_id %>-4"
+              autocomplete="off"
+            />
+            <label
+              class="btn btn-outline-secondary rounded-0 text-start"
+              for="question<%= questions[question].question_id %>-4"
+              >Radio 4</label
+            >
             </div>
           </div>
+          <% } %>
 
           <hr class="my-4" />
-
-          <div class="card">
-            <h5 class="card-header">Questions: 2</h5>
-            <div class="card-body">
-              <p class="card-text">
-                Question Question Question Question Question Question Question
-              </p>
-            </div>
-            <div class="list-group list-group-flush">
-              <input
-                type="radio"
-                class="btn-check"
-                name="question2"
-                id="question2-1"
-                autocomplete="off"
-                checked
-              />
-              <label
-                class="btn btn-outline-secondary rounded-0 text-start"
-                for="question2-1"
-                >Radio 1</label
-              >
-
-              <input
-                type="radio"
-                class="btn-check"
-                name="question2"
-                id="question2-2"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-outline-secondary rounded-0 text-start"
-                for="question2-2"
-                >Radio 2</label
-              >
-
-              <input
-                type="radio"
-                class="btn-check"
-                name="question2"
-                id="question2-3"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-outline-secondary rounded-0 text-start"
-                for="question2-3"
-                >Radio 3</label
-              >
-            </div>
-            <div class="card-footer text-muted">
-              <a href="">Author[User Name]</a>
-              <a href="#" class="btn btn-primary badge">Share</a>
-              <a href="#" class="btn btn-primary badge">Attempt</a>
-            </div>
+          <div class="card-footer text-muted">
+            <a href="">Author[User Name]</a>
+            <a href="#" class="btn btn-primary badge">Share</a>
+            <a href="#" class="btn btn-primary badge">Attempt</a>
           </div>
-          <hr class="my-4" />
 
           <button class="w-100 btn btn-primary btn-lg" type="submit">
             Submit
-          </button>
+          </button>/
         </div>
         <!-- End Quiz Page -->
       </div>
@@ -158,4 +118,4 @@
     <!-- Only Form Validation -->
     <script src="/scripts/form-validation.js"></script>
   </body>
-</html>
+</html> -->
