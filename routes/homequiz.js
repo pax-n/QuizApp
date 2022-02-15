@@ -21,6 +21,7 @@ module.exports = (db) => {
     const parameters = [req.session.user_id];
 
     let quiz = `SELECT * FROM quizzes`;
+
     db.query(quiz)
       .then((data) => {
         templateVars.quiz = data.rows;
