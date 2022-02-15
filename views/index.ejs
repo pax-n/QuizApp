@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+<<<<<<< HEAD
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 </head>
@@ -17,6 +18,38 @@
       <a href="/users/<%= user_id %>">
         <div class="create-quiz-link">
           Log in
+=======
+  <body>
+    <%- include('partials/header.ejs') %>
+    <main>
+      <div class="container py-4">
+        <!-- Home Page -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Public Kazoots!</h4>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Quiz -->
+            <% for(let arr in quiz) { %>
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header"><%= quiz[arr].name %></h5>
+                <div class="card-body">
+                  <h5 class="card-title"><%= quiz[arr].description %></h5>
+                  <p class="card-text">
+                    <%= quiz[arr].id %> <%= quiz[arr].user_id %> <%=
+                    quiz[arr].isprivate %>
+                  </p>
+                  <a href="#" class="btn btn-primary">Start Quiz</a>
+                </div>
+                <div class="card-footer text-muted">
+                  <a href="">Author[User Name]</a>
+                  <a href="#" class="btn btn-primary badge">Share</a>
+                </div>
+              </div>
+            </div>
+            <% } %>
+            <!-- End Quiz -->
+          </div>
+>>>>>>> caf56999d792a879ddc415befc7b45d6dadc9e9e
         </div>
       </a>
     </nav>
