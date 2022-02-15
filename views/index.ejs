@@ -37,10 +37,9 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= quiz[arr].description %></h5>
                   <p class="card-text">
-                    <%= quiz[arr].id %> <%= quiz[arr].user_id %> <%=
-                    quiz[arr].isprivate %>
+                    Quiz id <%= quiz[arr].id %> User id <%= quiz[arr].user_id %>
                   </p>
-                  <a href="#" class="btn btn-primary">Start Quiz</a>
+                  <a href="/quizpage/<%= quiz[arr].id %>" class="btn btn-primary">Start Quiz</a>
                 </div>
                 <div class="card-footer text-muted">
                   <a href="">Author[User Name]</a>

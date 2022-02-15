@@ -9,18 +9,18 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
-  router.get('/', (req, res) => {
+  router.get('/:quiz_id', (req, res) => {
     // cookie-session middleware
     console.log('XXXXXXX', req.session.user_id);
     // // cookie-parser middleware
     res.cookie('user_id', req.session.user_id);
     // // send the user somewhere
     const templateVars = {};
-    let query = `SELECT * FROM users WHERE id = $1`;
-    const parameters = [req.session.user_id];
+    let query = `SELECT * FROM questions WHERE quiz_id = $1`;
+    const parameters = [req.params.quiz_id];
     db.query(query, parameters)
       .then((data) => {
-        templateVars.user = data.rows;
+        templateVars.questions = data.rows;
         res.render('quizpage', templateVars);
       })
       .catch((err) => {
