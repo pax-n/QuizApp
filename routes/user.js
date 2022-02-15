@@ -15,18 +15,12 @@ module.exports = (db) => {
     // // cookie-parser middleware
     res.cookie('user_id', req.session.user_id);
     // // send the user somewhere
-    let user_id = req.session.user_id;
-    // //
-    let query = `SELECT * FROM users`;
-    db.query(query)
+    const templateVars = {};
+    let query = `SELECT * FROM users WHERE id = $1`;
+    const parameters = [req.session.user_id];
+    db.query(query, parameters)
       .then((data) => {
-        console.log(data);
-        let users = data.rows;
-        console.log('GETtemplate', users[user_id]);
-        const templateVars = {
-          user_id: user_id,
-          user: users[user_id],
-        };
+        templateVars.user = data.rows;
         res.render('user', templateVars);
       })
       .catch((err) => {

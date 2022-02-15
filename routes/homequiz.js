@@ -10,16 +10,29 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    let query = `SELECT * FROM quizzes LEFT OUTER JOIN users ON quizzes.user_id = users.id`;
-    db.query(query)
+    // cookie-session middleware
+    console.log('XXXXXXX', req.session.user_id);
+    // // cookie-parser middleware
+    res.cookie('user_id', req.session.user_id);
+    // // send the user somewhere
+
+    const templateVars = {};
+    let query = `SELECT * FROM users WHERE id = $1`;
+    const parameters = [req.session.user_id];
+
+    let quiz = `SELECT * FROM quizzes`;
+    db.query(quiz)
       .then((data) => {
-        const quizzes = data;
-        console.log(quizzes);
-        const templateVars = {
-          user_id: 1,
-          user: quizzes[0],
-        };
-        res.render('index', templateVars);
+        templateVars.quiz = data.rows;
+        db.query(query, parameters)
+          .then((data) => {
+            templateVars.user = data.rows;
+            console.log('QUIZZZZZZZ', templateVars);
+            res.render('index', templateVars);
+          })
+          .catch((err) => {
+            res.status(500).json({ error: err.message });
+          });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
