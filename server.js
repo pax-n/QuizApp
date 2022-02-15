@@ -59,7 +59,7 @@ app.use(express.static('public'));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require('./routes/users');
 const widgetsRoutes = require('./routes/widgets');
-const quizzesRoutes = require('./routes/quizzes');
+//const quizzesRoutes = require('./routes/quizzes');
 const questionsRoutes = require('./routes/questions');
 const answersRoutes = require('./routes/answers');
 const attemptsRoutes = require('./routes/attempts');
@@ -78,7 +78,7 @@ const logoutRoutes = require('./routes/logout');
 // Note: Feel free to replace the example routes below with your own
 app.use('/api/users', usersRoutes(db));
 app.use('/api/widgets', widgetsRoutes(db));
-app.use('/api/quizzes', quizzesRoutes(db));
+//app.use('/api/quizzes', quizzesRoutes(db));
 app.use('/api/questions', questionsRoutes(db));
 app.use('/api/answers', answersRoutes(db));
 app.use('/api/attempts', attemptsRoutes(db));
@@ -99,8 +99,21 @@ app.use('/logout', logoutRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  console.log(req.session['user_id']);
-  res.render('index');
+  req.session.user_id = req.params.user_id;
+  db.query(`
+  SELECT * FROM quizzes WHERE isPrivate = FALSE;
+  `)
+    .then(data => {
+      console.log("we got our result from db querry")
+      console.log("This is my data results", data)
+      const templateVar = {
+        quizzes: data.rows,
+        user_id: req.params.user_id
+      };
+      console.log(req.session['user_id']);
+      res.render('index', templateVar);
+    })
+    .catch(error =>  console.log("error", error))
 });
 
 app.get('/demo_index', (req, res) => {

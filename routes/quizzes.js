@@ -3,7 +3,7 @@
  * Since this file is loaded in server.js into api/quizzes,
  *   these routes are mounted onto /quizzes
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
+
 
 const express = require('express');
 const router = express.Router();
@@ -17,11 +17,16 @@ module.exports = (db) => {
     SELECT * FROM quizzes WHERE isPrivate = FALSE;
     `)
     .then(data => {
-      const templateVar = {quizzes: data.rows, user_id: req.params.user_id};
+console.log("we got our result from db querry")
+      console.log("This is my data results" , data)
+      const templateVar = {
+        quizzes: data.rows,
+        user_id: req.params.user_id
+      };
       res.render('../views/index', templateVar);
     })
   });
   return router;
 };
 
-
+*/

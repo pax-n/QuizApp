@@ -1,5 +1,5 @@
 
-const { Pool } = require('pg');
+/*const { Pool } = require('pg');
 
 const pool = new Pool({
   user: 'labber',
@@ -30,3 +30,4 @@ const login = function(email, password) {
   })
 }
 exports.login = login;
+*/
