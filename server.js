@@ -106,7 +106,6 @@ app.use('/', homeQuizRoutes(db));
 // });
 // Homepage receive all quiz routes
 
-
 app.get('/demo_index', (req, res) => {
   res.render('demo_index');
 });
@@ -131,7 +130,7 @@ app.get('/login/:id', (req, res) => {
 
   const parameters = [req.params.id];
 
-  let quiz = `SELECT * FROM quizzes`;
+  let quiz = `SELECT users.*, quizzes.*, users.name as username, quizzes.name as quizzname FROM quizzes JOIN users ON users.id=quizzes.user_id`;
 
   db.query(quiz)
     .then((data) => {
@@ -159,7 +158,7 @@ app.post('/logout', (req, res) => {
   const templateVars = {};
   templateVars.user = [];
 
-  let quiz = `SELECT * FROM quizzes`;
+  let quiz = `SELECT users.*, quizzes.*, users.name as username, quizzes.name as quizzname FROM quizzes JOIN users ON users.id=quizzes.user_id`;
 
   db.query(quiz)
     .then((data) => {

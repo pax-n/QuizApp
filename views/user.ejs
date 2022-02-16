@@ -40,7 +40,11 @@
               <% for(let arr in quiz) { %>
               <tr>
                 <th scope="row"><%= quiz[arr].id %></th>
-                <td><a href=""><%= quiz[arr].name %></a></td>
+                <td>
+                  <a href="/quizpage/<%= quiz[arr].quiz_id %>"
+                    ><%= quiz[arr].description %></a
+                  >
+                </td>
                 <td><%= quiz[arr].score %>/5</td>
               </tr>
               <% } %>
@@ -114,11 +118,13 @@
               <h4 class="mb-3">Profile Details</h4>
               <div class="row">
                 <div class="col-lg-3 col-md-4 text-muted">Full Name</div>
-                <div class="col-lg-9 col-md-8">User Name</div>
+                <div class="col-lg-9 col-md-8"><%= user[0].name %></div>
               </div>
               <div class="row">
                 <div class="col-lg-3 col-md-4 text-muted">Email</div>
-                <div class="col-lg-9 col-md-8">you@example.com</div>
+                <div class="col-lg-9 col-md-8">
+                  <a href="mailto:<%= user[0].email %>"><%= user[0].email %></a>
+                </div>
               </div>
               <div class="row">
                 <div class="col-lg-3 col-md-4 text-muted">LinkedIn</div>
@@ -233,31 +239,18 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <% for(let arr in quiz) { %>
                   <tr>
-                    <th scope="row">1</th>
-                    <td><a href="">Quiz Title</a></td>
-                    <td><a href="" class="btn btn-primary badge">Edit</a></td>
-                    <td><a href="" class="btn btn-danger badge">Delete</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
+                    <th scope="row"><%= quiz[arr].id %></th>
                     <td>
-                      <a href=""
-                        >Quiz Title Quiz Title Quiz Title Quiz Title Quiz Title
-                        Quiz Title Quiz Title Quiz Title Quiz Title Quiz Title
-                        Quiz Title Quiz Title Quiz Title Quiz Title Quiz Title
-                        Quiz Title Quiz Title
-                      </a>
+                      <a href="/quizpage/<%= quiz[arr].quiz_id %>"
+                        ><%= quiz[arr].description %></a
+                      >
                     </td>
                     <td><a href="" class="btn btn-primary badge">Edit</a></td>
                     <td><a href="" class="btn btn-danger badge">Delete</a></td>
                   </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td><a href="">Quiz Title</a></td>
-                    <td><a href="" class="btn btn-primary badge">Edit</a></td>
-                    <td><a href="" class="btn btn-danger badge">Delete</a></td>
-                  </tr>
+                  <% } %>
                 </tbody>
               </table>
             </div>
