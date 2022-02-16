@@ -20,7 +20,8 @@ module.exports = (db) => {
     let query = `SELECT * FROM users WHERE id = $1`;
     const parameters = [req.session.user_id];
 
-    let quiz = `SELECT users.*, quizzes.*, users.name as username, quizzes.name as quizzname FROM quizzes
+    let quiz = `SELECT users.*, quizzes.*, users.name as username, quizzes.name as quizzname
+    FROM quizzes
     JOIN users ON users.id=quizzes.user_id`;
     db.query(quiz)
       .then((data) => {
