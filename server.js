@@ -155,7 +155,7 @@ app.get('/login/:id', (req, res) => {
 // POST /logout
 //
 app.post('/logout', (req, res) => {
-  req.session.user_id = null;
+  req.session = null;
   const templateVars = {};
   templateVars.user = [];
 

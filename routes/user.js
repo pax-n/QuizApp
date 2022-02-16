@@ -18,10 +18,21 @@ module.exports = (db) => {
     const templateVars = {};
     let query = `SELECT * FROM users WHERE id = $1`;
     const parameters = [req.session.user_id];
-    db.query(query, parameters)
+
+    let quiz = `SELECT * FROM quizzes INNER JOIN attempts ON quizzes.id = attempts.quiz_id`;
+
+    db.query(quiz)
       .then((data) => {
-        templateVars.user = data.rows;
-        res.render('user', templateVars);
+        templateVars.quiz = data.rows;
+        db.query(query, parameters)
+          .then((data) => {
+            templateVars.user = data.rows;
+            console.log('QUIZZZZZZZ', templateVars);
+            res.render('user', templateVars);
+          })
+          .catch((err) => {
+            res.status(500).json({ error: err.message });
+          });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
