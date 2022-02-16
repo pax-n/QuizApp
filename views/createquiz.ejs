@@ -35,7 +35,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id=""
+                  id="quizName"
                   required
                 />
                 <div class="invalid-feedback">Your Kazoot is required.</div>
@@ -46,7 +46,7 @@
                 <textarea
                   type="text"
                   class="form-control"
-                  id=""
+                  id="quizDesc"
                   placeholder=""
                   required
                 ></textarea>
@@ -62,8 +62,8 @@
         <!-- End Creating Quiz -->
 
         <!-- Making The Quiz -->
-        <div class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Question 1</h4>
+        <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
+          <h4 class="mb-3">Default Question</h4>
           <form class="needs-validation" novalidate>
             <div class="row g-3">
               <div class="col-12">
@@ -101,9 +101,9 @@
                 />
                 <div class="invalid-feedback">Option 1 is required.</div>
               </div>
-              <div class="col-12">
+              <div id= "answerOptions" class="col-12 answerOptions">
                 <div class="input-group mb-3">
-                  <button class="btn btn-outline-danger" type="button">
+                  <button class="btn btn-outline-danger delAns" type="button">
                     Delete
                   </button>
                   <input
@@ -114,18 +114,15 @@
                 </div>
               </div>
               <div class="col-12">
-                <a class="btn btn-secondary"> Add Option </a>
+                <a id="addAns" class="btn btn-secondary addAns"> Add Option </a>
               </div>
             </div>
             <hr class="my-4" />
-
-            <button class="btn btn-primary btn-lg">Add More Questions</button>
-
-            <button class="btn btn-danger btn-lg">Delete</button>
           </form>
 
         </div>
-        <button class="btn btn-primary btn-lg">Complete</button>
+        <button id="addQuestion" class="btn btn-secondary btn-lg addQuestion">Add More Questions</button>
+        <button id="createQuiz" class="btn btn-primary btn-lg">Complete</button>
         <!-- End Making The Quiz -->
 
         <!-- Result Page -->
