@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+const { param } = require('express/lib/request');
 const router = express.Router();
 
 module.exports = (db) => {
@@ -49,3 +50,4 @@ module.exports = (db) => {
   });
   return router;
 };
+

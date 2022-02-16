@@ -17,6 +17,7 @@ module.exports = (db) => {
     // // send the user somewhere
     let answer_id = req.body.answer_id;
     console.log('XXXXXXXXXXXXXX', answer_id);
+    console.log('req.query', req.body);
     // let question1 = req.body.question1;
     // console.log('XXXXXXXXXXXXXX', question1);
     res.redirect(`/resultpage/${answer_id}`);

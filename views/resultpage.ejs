@@ -30,26 +30,56 @@
           <h4 class="mb-3">Quiz Title</h4>
           <div class="alert alert-success" role="alert">
             <h2><i class="bi bi-award"></i> 0/5</h2>
-            <h4 class="alert-heading">Support Author[User Name]</h4>
+            <h4 class="alert-heading">Support Author <%= author[0].name %></h4>
             <ul class="list-group list-group-flush">
               <li class="list-group-item list-group-item-success">
-                Follow Author[User Name]
-                <a href="Author[User Name]"><i class="bi bi-linkedin"></i></a>
-                <a href="Author[User Name]"><i class="bi bi-github"></i></a>
+                Follow Author <%= author[0].name %>
+                <a href="mailto:<%= author[0].email %>"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a href="mailto:<%= author[0].email %>"
+                  ><i class="bi bi-github"></i
+                ></a>
               </li>
               <li class="list-group-item list-group-item-success">
-                Write a letter of LinkedIn recommendation to the Author[User
-                Name]
-                <a href="Author[User Name]"><i class="bi bi-linkedin"></i></a>
+                Write a letter of LinkedIn recommendation to the Author <%=
+                author[0].name %>
+                <a href="mailto:<%= author[0].email %>"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
               </li>
               <li class="list-group-item list-group-item-success">
-                Endorse the Author[User Name] skills.
-                <a href="" class="btn btn-primary badge">React.js</a>
-                <a href="" class="btn btn-primary badge">Node.js</a>
-                <a href="" class="btn btn-primary badge">Javascript</a>
-                <a href="" class="btn btn-primary badge">jQuery</a>
-                <a href="" class="btn btn-primary badge">SQL</a>
-                <a href="" class="btn btn-primary badge">SASS</a>
+                Endorse the Author <%= author[0].name %> skills.
+                <a
+                  href="mailto:<%= author[0].email %>"
+                  class="btn btn-primary badge"
+                  >React.js</a
+                >
+                <a
+                  href="mailto:<%= author[0].email %>"
+                  class="btn btn-primary badge"
+                  >Node.js</a
+                >
+                <a
+                  href="mailto:<%= author[0].email %>"
+                  class="btn btn-primary badge"
+                  >Javascript</a
+                >
+                <a
+                  href="mailto:<%= author[0].email %>"
+                  class="btn btn-primary badge"
+                  >jQuery</a
+                >
+                <a
+                  href="mailto:<%= author[0].email %>"
+                  class="btn btn-primary badge"
+                  >SQL</a
+                >
+                <a
+                  href="mailto:<%= author[0].email %>"
+                  class="btn btn-primary badge"
+                  >SASS</a
+                >
               </li>
             </ul>
             <hr />
@@ -57,22 +87,48 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item list-group-item-success">
                 Request LinkedIn Connection
-                <a href="Author[User Name]"><i class="bi bi-envelope"></i></a>
+                <a href="mailto:<%= author[0].email %>"
+                  ><i class="bi bi-envelope"></i
+                ></a>
               </li>
               <li class="list-group-item list-group-item-success">
                 Request LinkedIn Recommendations
-                <a href="Author[User Name]"><i class="bi bi-envelope"></i></a>
+                <a href="mailto:<%= author[0].email %>"
+                  ><i class="bi bi-envelope"></i
+                ></a>
               </li>
               <li class="list-group-item list-group-item-success">
                 Request LinkedIn skill endorse
-                <a href="my LinkedIn" class="btn btn-primary badge">React.js</a>
-                <a href="my LinkedIn" class="btn btn-primary badge">Node.js</a>
-                <a href="my LinkedIn" class="btn btn-primary badge"
+                <a
+                  href="mailto:<%= user[0].email %>"
+                  class="btn btn-primary badge"
+                  >React.js</a
+                >
+                <a
+                  href="mailto:<%= user[0].email %>"
+                  class="btn btn-primary badge"
+                  >Node.js</a
+                >
+                <a
+                  href="mailto:<%= user[0].email %>"
+                  class="btn btn-primary badge"
                   >Javascript</a
                 >
-                <a href="my LinkedIn" class="btn btn-primary badge">jQuery</a>
-                <a href="my LinkedIn" class="btn btn-primary badge">SQL</a>
-                <a href="my LinkedIn" class="btn btn-primary badge">SASS</a>
+                <a
+                  href="mailto:<%= user[0].email %>"
+                  class="btn btn-primary badge"
+                  >jQuery</a
+                >
+                <a
+                  href="mailto:<%= user[0].email %>"
+                  class="btn btn-primary badge"
+                  >SQL</a
+                >
+                <a
+                  href="mailto:<%= user[0].email %>"
+                  class="btn btn-primary badge"
+                  >SASS</a
+                >
               </li>
             </ul>
           </div>
@@ -100,9 +156,19 @@
               <% } }} %>
             </ul>
             <div class="card-footer text-muted">
-              <a href="">Author[User Name]</a>
-              <a href="#" class="btn btn-primary badge">Share</a>
-              <a href="#" class="btn btn-primary badge">Attempt</a>
+              <a href="mailto:<%= author[0].email %>"
+                >Author <%= author[0].name %></a
+              >
+              <a
+                href="mailto:<%= author[0].email %>"
+                class="btn btn-primary badge"
+                >Share</a
+              >
+              <a
+                href="mailto:<%= author[0].email %>"
+                class="btn btn-primary badge"
+                >Attempt</a
+              >
             </div>
           </div>
 
