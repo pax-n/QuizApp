@@ -35,7 +35,7 @@ module.exports = (db) => {
           db.query(user, userid)
             .then((data) => {
               templateVars.user = data.rows;
-              console.log('UUUser', templateVars);
+              console.log('QUIZ Page:', templateVars);
               res.render('quizpage', templateVars);
             })
             .catch((err) => {

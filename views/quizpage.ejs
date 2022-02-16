@@ -29,45 +29,53 @@
 
         <div class="p-5 mb-4 bg-light rounded-3">
           <h4 class="mb-3">Please choose your answer!</h4>
-          <% for(let question of questions) { %>
-          <div class="card">
-            <h5 class="card-header">Question number : <%= question.id %></h5>
-            <div class="card-body">
-              <p class="card-text"><%= question.question %></p>
+          <form
+            action="/resultpage-post"
+            method="POST"
+            class="needs-validation"
+            novalidate
+          >
+            <% for(let question of questions) { %>
+            <div class="card">
+              <h5 class="card-header">Question number : <%= question.id %></h5>
+              <div class="card-body">
+                <p class="card-text"><%= question.question %></p>
+              </div>
+              <% for(let answer of answers) { %> <% if(answer.question_id ==
+              question.id) { %>
+              <div class="list-group list-group-flush">
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="question<%= answer.question_id %>"
+                  id="question<%= answer.question_id %>-<%= answer.id %>"
+                  autocomplete="off"
+                />
+                <label
+                  class="btn btn-outline-secondary rounded-0 text-start"
+                  for="question<%= answer.question_id %>-<%= answer.id %>"
+                  ><%= answer.answer %></label
+                >
+              </div>
+              <% } %> <% } %>
             </div>
-            <% for(let answer of answers) { %> <% if(answer.question_id ==
-            question.id) { %>
-            <div class="list-group list-group-flush">
-              <input
-                type="radio"
-                class="btn-check"
-                name="question<%= answer.question_id %>"
-                id="question<%= answer.question_id %>-<%= answer.id %>"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-outline-secondary rounded-0 text-start"
-                for="question<%= answer.question_id %>-<%= answer.id %>"
-                ><%= answer.answer %></label
-              >
+            <hr class="my-4" />
+            <% } %>
+
+            <div class="alert alert-light">
+              <a href="">Author[User Name]</a>
+              <a href="#" class="btn btn-primary badge">Share</a>
+              <a href="#" class="btn btn-primary badge">Attempt</a>
             </div>
-            <% } %> <% } %>
-          </div>
-          <hr class="my-4" />
-          <% } %>
-
-
-          <hr class="my-4" />
-          <div class="card-footer text-muted">
-          <div class="alert alert-light">
-            <a href="">Author[User Name]</a>
-            <a href="#" class="btn btn-primary badge">Share</a>
-            <a href="#" class="btn btn-primary badge">Attempt</a>
-          </div>
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">
-            Submit
-          </button>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">
+              Submit
+            </button>
+            <input
+              name="answer_id"
+              type="hidden"
+              value="<%= questions[0].quiz_id %>"
+            />
+          </form>
         </div>
         <!-- End Quiz Page -->
       </div>

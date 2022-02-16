@@ -9,7 +9,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
-  router.get('/', (req, res) => {
+  router.get('/:answer_id', (req, res) => {
     // cookie-session middleware
     console.log('XXXXXXX', req.session.user_id);
     // // cookie-parser middleware
@@ -18,10 +18,33 @@ module.exports = (db) => {
     const templateVars = {};
     let query = `SELECT * FROM users WHERE id = $1`;
     const parameters = [req.session.user_id];
-    db.query(query, parameters)
+
+    let questions = `SELECT * FROM questions WHERE quiz_id = $1`;
+    const answer_id = [req.params.answer_id];
+    db.query(questions, answer_id)
       .then((data) => {
-        templateVars.user = data.rows;
-        res.render('resultpage', templateVars);
+        templateVars.questions = data.rows;
+        const q_ids = [];
+        templateVars.questions.forEach((element) => {
+          q_ids.push(element.id);
+        });
+        let querynew = `SELECT * FROM answers WHERE question_id IN(${q_ids})`;
+        db.query(querynew)
+          .then((data) => {
+            templateVars.answers = data.rows;
+            db.query(query, parameters)
+              .then((data) => {
+                templateVars.user = data.rows;
+                console.log('RESULTTTTTTTTT', templateVars);
+                res.render('resultpage', templateVars);
+              })
+              .catch((err) => {
+                res.status(500).json({ error: err.message });
+              });
+          })
+          .catch((err) => {
+            res.status(500).json({ error: err.message });
+          });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
