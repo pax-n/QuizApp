@@ -29,7 +29,7 @@ module.exports = (db) => {
           .then((data) => {
             // console.log('data from users',data.rows)
             templateVars.user = data.rows;
-            // console.log('QUIZZZZZZZ', templateVars);
+            console.log('HOME Page', templateVars);
             res.render('index', templateVars);
           })
           .catch((err) => {
