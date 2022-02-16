@@ -62,7 +62,7 @@
         <!-- End Creating Quiz -->
 
         <!-- Making The Quiz -->
-        <div class="p-5 mb-4 bg-light rounded-3">
+        <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
           <h4 class="mb-3">Question 1</h4>
           <form class="needs-validation" novalidate>
             <div class="row g-3">
@@ -101,9 +101,9 @@
                 />
                 <div class="invalid-feedback">Option 1 is required.</div>
               </div>
-              <div class="col-12">
+              <div id= "answerOptions" class="col-12">
                 <div class="input-group mb-3">
-                  <button class="btn btn-outline-danger" type="button">
+                  <button id="delAns" class="btn btn-outline-danger" type="button">
                     Delete
                   </button>
                   <input
@@ -114,17 +114,15 @@
                 </div>
               </div>
               <div class="col-12">
-                <a class="btn btn-secondary"> Add Option </a>
+                <a id="addAns" class="btn btn-secondary"> Add Option </a>
               </div>
             </div>
             <hr class="my-4" />
-
-            <button id="addAns" class="btn btn-primary btn-lg">Add More Questions</button>
-
-            <button id="delAns" class="btn btn-danger btn-lg">Delete</button>
+            <button id="deleteQuestion" class="btn btn-danger btn-lg">Delete</button>
           </form>
 
         </div>
+        <button id="addQuestion" class="btn btn-secondary btn-lg">Add More Questions</button>
         <button id="createQuiz" class="btn btn-primary btn-lg">Complete</button>
         <!-- End Making The Quiz -->
 
