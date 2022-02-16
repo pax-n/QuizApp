@@ -33,19 +33,19 @@
             <% for(let arr in quiz) { %>
             <div class="col">
               <div class="card">
-                <h5 class="card-header"><%= quiz[arr].name %></h5>
+                <h5 class="card-header"><%= quiz[arr].quizzname %></h5>
                 <div class="card-body">
                   <h5 class="card-title"><%= quiz[arr].description %></h5>
                   <p class="card-text">
-                    Quiz id <%= quiz[arr].id %> User id <%= quiz[arr].user_id %>
+
                   </p>
                   <a href="/quizpage/<%= quiz[arr].id %>" class="btn btn-primary">Start Quiz</a>
                 </div>
-                <div class="card-footer text-muted">
-                  <a href="">Author[User Name]</a>
-                  <a href="#" class="btn btn-primary badge">Share</a>
-                </div>
               </div>
+              <div class="card-footer text-muted">
+              <a href="">Author:<%= quiz[arr].username %></a>
+              <a href="#" class="btn btn-primary badge">Share</a>
+            </div>
             </div>
             <% } %>
             <!-- End Quiz -->
