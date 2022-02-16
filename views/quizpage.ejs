@@ -29,16 +29,14 @@
 
         <% for(let question of questions) { %>
         <div class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Please choose your answer! </h4>
+          <h4 class="mb-3">Please choose your answer!</h4>
           <div class="card">
             <h5 class="card-header">Question number : <%= question.id %></h5>
             <div class="card-body">
-              <p class="card-text">
-                <%= question.question %>
-              </p>
+              <p class="card-text"><%= question.question %></p>
             </div>
-            <% for(let answer of answers) { %>
-              <% if(answer.question_id == question.id) { %>
+            <% for(let answer of answers) { %> <% if(answer.question_id ==
+            question.id) { %>
             <div class="list-group list-group-flush">
               <input
                 type="radio"
@@ -54,8 +52,7 @@
                 ><%= answer.answer %></label
               >
             </div>
-            <% } %>
-            <% } %>
+            <% } %> <% } %>
           </div>
           <% } %>
 
@@ -69,8 +66,7 @@
         </br>
 
           <button class="w-100 btn btn-primary btn-lg" type="submit">
-            Submit
-          </button>
+            Submit</button>
         </div>
         <!-- End Quiz Page -->
       </div>
