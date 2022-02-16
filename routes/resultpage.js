@@ -21,22 +21,30 @@ module.exports = (db) => {
 
     let questions = `SELECT * FROM questions WHERE quiz_id = $1`;
     const answer_id = [req.params.answer_id];
-    db.query(questions, answer_id)
+    console.log('AAAAAAA', answer_id);
+    db.query(query, answer_id)
       .then((data) => {
-        templateVars.questions = data.rows;
-        const q_ids = [];
-        templateVars.questions.forEach((element) => {
-          q_ids.push(element.id);
-        });
-        let querynew = `SELECT * FROM answers WHERE question_id IN(${q_ids})`;
-        db.query(querynew)
+        templateVars.author = data.rows;
+        db.query(questions, answer_id)
           .then((data) => {
-            templateVars.answers = data.rows;
-            db.query(query, parameters)
+            templateVars.questions = data.rows;
+            const q_ids = [];
+            templateVars.questions.forEach((element) => {
+              q_ids.push(element.id);
+            });
+            let querynew = `SELECT * FROM answers WHERE question_id IN(${q_ids})`;
+            db.query(querynew)
               .then((data) => {
-                templateVars.user = data.rows;
-                console.log('RESULTTTTTTTTT', templateVars);
-                res.render('resultpage', templateVars);
+                templateVars.answers = data.rows;
+                db.query(query, parameters)
+                  .then((data) => {
+                    templateVars.user = data.rows;
+                    console.log('RESULTTTTTTTTT', templateVars);
+                    res.render('resultpage', templateVars);
+                  })
+                  .catch((err) => {
+                    res.status(500).json({ error: err.message });
+                  });
               })
               .catch((err) => {
                 res.status(500).json({ error: err.message });
@@ -45,11 +53,11 @@ module.exports = (db) => {
           .catch((err) => {
             res.status(500).json({ error: err.message });
           });
+        // res.render('resultpage');
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-    // res.render('resultpage');
   });
   return router;
 };
