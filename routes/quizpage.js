@@ -11,32 +11,41 @@ const router = express.Router();
 module.exports = (db) => {
   router.get('/:quiz_id', (req, res) => {
     // cookie-session middleware
-    console.log('XXXXXXX', req.session.user_id);
+    //console.log('XXXXXXX', req.session.user_id);
     // // cookie-parser middleware
     res.cookie('user_id', req.session.user_id);
     // // send the user somewhere
     const templateVars = {};
+    let user = `SELECT * FROM users WHERE id = $1`;
+    const userid = [req.session.user_id];
+
     let query = `SELECT * FROM questions WHERE quiz_id = $1`;
     const parameters = [req.params.quiz_id];
     db.query(query, parameters)
       .then((data) => {
         templateVars.questions = data.rows;
         const q_ids = [];
-        templateVars.questions.forEach(element => {
-          q_ids.push(element.id)
+        templateVars.questions.forEach((element) => {
+          q_ids.push(element.id);
         });
-        let querynew=`SELECT * FROM answers WHERE question_id IN(${q_ids})`
-        db.query(querynew)
-        .then((data) =>{
-          templateVars.answers=data.rows ;
+        let querynew = `SELECT * FROM answers WHERE question_id IN(${q_ids})`;
+        db.query(querynew).then((data) => {
+          templateVars.answers = data.rows;
           //console.log(templateVars)
-          res.render('quizpage', templateVars);
-        })
+          db.query(user, userid)
+            .then((data) => {
+              templateVars.user = data.rows;
+              console.log('QUIZ Page:', templateVars);
+              res.render('quizpage', templateVars);
+            })
+            .catch((err) => {
+              res.status(500).json({ error: err.message });
+            });
+        });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-    // res.render('quizpage');
   });
   return router;
 };

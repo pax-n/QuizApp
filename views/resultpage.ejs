@@ -76,25 +76,28 @@
               </li>
             </ul>
           </div>
+          <% for(let question of questions) { %>
           <div class="card">
-            <h5 class="card-header">Questions: 1</h5>
+            <h5 class="card-header">Questions: <%= question.id %></h5>
             <div class="card-body">
-              <p class="card-text">
-                Question Question Question Question Question Question Question
-              </p>
+              <p class="card-text"><%= question.question %></p>
             </div>
             <ul class="list-group list-group-flush">
+              <% for(let answer of answers) { %> <% if(answer.question_id ==
+              question.id) { %><% if(!answer.iscorrect) { %>
               <li
                 class="list-group-item text-white bg-secondary bi bi-exclamation-circle"
               >
-                Radio 1 Your Answer
+                <%= answer.answer %>
               </li>
-              <li class="list-group-item">Radio 2</li>
+
+              <% } else { %>
               <li
                 class="list-group-item text-white bg-success bi bi-check-circle"
               >
-                Radio 3 Correct Answer
+                <%= answer.answer %>
               </li>
+              <% } }} %>
             </ul>
             <div class="card-footer text-muted">
               <a href="">Author[User Name]</a>
@@ -104,38 +107,7 @@
           </div>
 
           <hr class="my-4" />
-
-          <div class="card">
-            <h5 class="card-header">Questions: 2</h5>
-            <div class="card-body">
-              <p class="card-text">
-                Question Question Question Question Question Question Question
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li
-                class="list-group-item text-white bg-secondary bi bi-exclamation-circle"
-              >
-                Radio 1 Your Answer
-              </li>
-              <li class="list-group-item">Radio 2</li>
-              <li
-                class="list-group-item text-white bg-success bi bi-check-circle"
-              >
-                Radio 3 Correct Answer
-              </li>
-            </ul>
-            <div class="card-footer text-muted">
-              <a href="">Author[User Name]</a>
-              <a href="#" class="btn btn-primary badge">Share</a>
-              <a href="#" class="btn btn-primary badge">Attempt</a>
-            </div>
-          </div>
-          <hr class="my-4" />
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">
-            Submit
-          </button>
+          <% } %>
         </div>
         <!-- End Answer Page -->
       </div>

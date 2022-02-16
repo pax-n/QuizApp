@@ -67,6 +67,7 @@ const attemptsRoutes = require('./routes/attempts');
 // const loginPostRoutes = require('./routes/login-post');
 const quizpageRoutes = require('./routes/quizpage');
 const resultpageRoutes = require('./routes/resultpage');
+const resultpagePostRoutes = require('./routes/resultpage-post');
 const createquizRoutes = require('./routes/createquiz');
 const userRoutes = require('./routes/user');
 const registerRoutes = require('./routes/register');
@@ -87,6 +88,7 @@ app.use('/api/attempts', attemptsRoutes(db));
 // app.use('/login-post', urlencodedParser, loginPostRoutes(db));
 app.use('/quizpage', quizpageRoutes(db));
 app.use('/resultpage', resultpageRoutes(db));
+app.use('/resultpage-post', urlencodedParser, resultpagePostRoutes(db));
 app.use('/createquiz', createquizRoutes(db));
 app.use('/user', userRoutes(db));
 app.use('/register', registerRoutes(db));
@@ -105,7 +107,6 @@ app.use('/', homeQuizRoutes(db));
 //   res.render('index');
 // });
 // Homepage receive all quiz routes
-
 
 app.get('/demo_index', (req, res) => {
   res.render('demo_index');
@@ -131,7 +132,7 @@ app.get('/login/:id', (req, res) => {
 
   const parameters = [req.params.id];
 
-  let quiz = `SELECT * FROM quizzes`;
+  let quiz = `SELECT users.*, quizzes.*, users.name as username, quizzes.name as quizzname FROM quizzes JOIN users ON users.id=quizzes.user_id`;
 
   db.query(quiz)
     .then((data) => {
@@ -159,7 +160,7 @@ app.post('/logout', (req, res) => {
   const templateVars = {};
   templateVars.user = [];
 
-  let quiz = `SELECT * FROM quizzes`;
+  let quiz = `SELECT users.*, quizzes.*, users.name as username, quizzes.name as quizzname FROM quizzes JOIN users ON users.id=quizzes.user_id`;
 
   db.query(quiz)
     .then((data) => {
