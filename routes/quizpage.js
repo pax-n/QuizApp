@@ -11,7 +11,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.get('/:quiz_id', (req, res) => {
     // cookie-session middleware
-    console.log('XXXXXXX', req.session.user_id);
+    //console.log('XXXXXXX', req.session.user_id);
     // // cookie-parser middleware
     res.cookie('user_id', req.session.user_id);
     // // send the user somewhere
@@ -46,7 +46,6 @@ module.exports = (db) => {
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-    // res.render('quizpage');
   });
   return router;
 };
