@@ -25,72 +25,37 @@
     <%- include('partials/header.ejs') %>
     <main>
       <div class="container py-4">
-        <!-- <!-- Quiz Page -->
+        <!--Quiz Page -->
 
-        <% for(let question in questions) { %>
+        <% for(let question of questions) { %>
         <div class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Please choose your answers! </h4>
+          <h4 class="mb-3">Please choose your answer! </h4>
           <div class="card">
-            <h5 class="card-header">Question number : <%= questions[question].id %></h5>
+            <h5 class="card-header">Question number : <%= question.id %></h5>
             <div class="card-body">
               <p class="card-text">
-                Question <%= questions[question].question %>
+                Question <%= question.question %>
               </p>
             </div>
+            <% for(let answer of answers) { %>
+              <% if(answer.question_id == question.id) { %>
             <div class="list-group list-group-flush">
               <input
                 type="radio"
                 class="btn-check"
                 name="question1"
-                id="question<%= questions[question].question_id %>-1"
+                id="question<%= answer.answer %>-1"
                 autocomplete="off"
                 checked
               />
               <label
                 class="btn btn-outline-secondary rounded-0 text-start"
-                for="question<%= questions[question].question_id %>-1"
-                >Radio 1</label
+                for="question<%= answer.id %>-1"
+                ><%= answer.answer %></label
               >
-
-              <input
-                type="radio"
-                class="btn-check"
-                name="question1"
-                id="question<%= questions[question].question_id %>-2"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-outline-secondary rounded-0 text-start"
-                for="question<%= questions[question].question_id %>-2"
-                >Radio 2</label
-              >
-
-              <input
-                type="radio"
-                class="btn-check"
-                name="question1"
-                id="question<%= questions[question].question_id %>-3"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-outline-secondary rounded-0 text-start"
-                for="question<%= questions[question].question_id %>-3"
-                >Radio 3</label
-              >
-
-              <input
-              type="radio"
-              class="btn-check"
-              name="question1"
-              id="question<%= questions[question].question_id %>-4"
-              autocomplete="off"
-            />
-            <label
-              class="btn btn-outline-secondary rounded-0 text-start"
-              for="question<%= questions[question].question_id %>-4"
-              >Radio 4</label
-            >
             </div>
+            <% } %>
+            <% } %>
           </div>
           <% } %>
 

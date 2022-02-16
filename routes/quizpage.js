@@ -21,7 +21,17 @@ module.exports = (db) => {
     db.query(query, parameters)
       .then((data) => {
         templateVars.questions = data.rows;
-        res.render('quizpage', templateVars);
+        const q_ids = [];
+        templateVars.questions.forEach(element => {
+          q_ids.push(element.id)
+        });
+        let querynew=`SELECT * FROM answers WHERE question_id IN(${q_ids})`
+        db.query(querynew)
+        .then((data) =>{
+          templateVars.answers=data.rows ;
+          //console.log(templateVars)
+          res.render('quizpage', templateVars);
+        })
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
