@@ -130,19 +130,21 @@ app.get('/login/:id', (req, res) => {
   let query = `SELECT * FROM users WHERE id = $1`;
 
   const parameters = [req.params.id];
-  //
-  db.query(query, parameters)
+
+  let quiz = `SELECT * FROM quizzes`;
+
+  db.query(quiz)
     .then((data) => {
-      // console.log(data);
-      // let users = data.rows;
-      // console.log('GETtemplate', users[user_id]);
-      // const templateVars = {
-      //   user_id: user_id,
-      //   user: users[user_id],
-      // };
-      templateVars.user = data.rows;
-      console.log(templateVars.user[0].name);
-      res.render('index', templateVars);
+      templateVars.quiz = data.rows;
+      db.query(query, parameters)
+        .then((data) => {
+          templateVars.user = data.rows;
+          console.log('QUIZZZZZZZ', templateVars);
+          res.render('index', templateVars);
+        })
+        .catch((err) => {
+          res.status(500).json({ error: err.message });
+        });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -154,10 +156,20 @@ app.get('/login/:id', (req, res) => {
 //
 app.post('/logout', (req, res) => {
   req.session.user_id = null;
-  const templateVars = {
-    user: undefined,
-  };
-  res.render('index', templateVars);
+  const templateVars = {};
+  templateVars.user = [];
+
+  let quiz = `SELECT * FROM quizzes`;
+
+  db.query(quiz)
+    .then((data) => {
+      templateVars.quiz = data.rows;
+      console.log('QUIZZZZZZZ', templateVars);
+      res.render('index', templateVars);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 });
 
 app.listen(PORT, () => {

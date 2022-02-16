@@ -29,7 +29,7 @@
           <a href="/createquiz" class="nav-link px-2 link-dark">Create</a>
         </li>
       </ul>
-      <% if(!user){ %>
+      <% if(!Object.keys(user).length){ %>
       <div class="text-end">
         <a href="/login/1" class="btn btn-outline-primary me-2">Login</a>
         <a href="/login/1" class="btn btn-primary">Sign-up</a>
@@ -50,7 +50,7 @@
             height="32"
             class="rounded-circle"
           />
-
+          <%= user[0].name %>
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li><a class="dropdown-item" href="/createquiz">Create Quiz</a></li>
