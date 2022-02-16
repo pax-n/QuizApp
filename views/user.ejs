@@ -37,21 +37,13 @@
               </tr>
             </thead>
             <tbody>
+              <% for(let arr in quiz) { %>
               <tr>
-                <th scope="row">1</th>
-                <td><a href="">Quiz Title</a></td>
-                <td>0/5</td>
+                <th scope="row"><%= quiz[arr].id %></th>
+                <td><a href=""><%= quiz[arr].name %></a></td>
+                <td><%= quiz[arr].score %>/5</td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td><a href="">Quiz Title</a></td>
-                <td>1/5</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td><a href="">Quiz Title</a></td>
-                <td>5/5</td>
-              </tr>
+              <% } %>
             </tbody>
           </table>
           <ul class="nav nav-tabs" id="myTab" role="tablist">
