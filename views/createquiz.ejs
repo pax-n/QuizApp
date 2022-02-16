@@ -35,7 +35,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id=""
+                  id="quizName"
                   required
                 />
                 <div class="invalid-feedback">Your Kazoot is required.</div>
@@ -46,7 +46,7 @@
                 <textarea
                   type="text"
                   class="form-control"
-                  id=""
+                  id="quizDesc"
                   placeholder=""
                   required
                 ></textarea>
@@ -119,13 +119,13 @@
             </div>
             <hr class="my-4" />
 
-            <button class="btn btn-primary btn-lg">Add More Questions</button>
+            <button id="addAns" class="btn btn-primary btn-lg">Add More Questions</button>
 
-            <button class="btn btn-danger btn-lg">Delete</button>
+            <button id="delAns" class="btn btn-danger btn-lg">Delete</button>
           </form>
 
         </div>
-        <button class="btn btn-primary btn-lg">Complete</button>
+        <button id="createQuiz" class="btn btn-primary btn-lg">Complete</button>
         <!-- End Making The Quiz -->
 
         <!-- Result Page -->
