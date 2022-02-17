@@ -49,6 +49,7 @@
                   class="btn-check"
                   name="question<%= answer.question_id %>"
                   id="question<%= answer.question_id %>-<%= answer.id %>"
+                  value="<%= answer.iscorrect %>"
                   autocomplete="off"
                 />
                 <label
@@ -63,7 +64,9 @@
             <% } %>
 
             <div class="alert alert-light">
-              <a href="">Author[User Name]</a>
+              <a href="mailto:<%= author[0].email %>"
+                >Author <%= author[0].name %></a
+              >
               <a href="#" class="btn btn-primary badge">Share</a>
               <a href="#" class="btn btn-primary badge">Attempt</a>
             </div>

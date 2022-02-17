@@ -22,6 +22,7 @@ module.exports = (db) => {
     let questions = `SELECT * FROM questions WHERE quiz_id = $1`;
     const answer_id = [req.params.answer_id];
     console.log('AAAAAAA', answer_id);
+    let attempt = `SELECT * FROM attempts`;
     db.query(query, answer_id)
       .then((data) => {
         templateVars.author = data.rows;
@@ -39,8 +40,15 @@ module.exports = (db) => {
                 db.query(query, parameters)
                   .then((data) => {
                     templateVars.user = data.rows;
-                    console.log('RESULTTTTTTTTT', templateVars);
-                    res.render('resultpage', templateVars);
+                    db.query(attempt)
+                      .then((data) => {
+                        templateVars.attempts = data.rows;
+                        console.log('RESULTTTTTTTTT', templateVars);
+                        res.render('resultpage', templateVars);
+                      })
+                      .catch((err) => {
+                        res.status(500).json({ error: err.message });
+                      });
                   })
                   .catch((err) => {
                     res.status(500).json({ error: err.message });
