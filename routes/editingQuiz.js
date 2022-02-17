@@ -8,6 +8,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 module.exports = (db) => {
   router.get('/', (req, res) => {
     // cookie-session middleware
@@ -21,7 +22,7 @@ module.exports = (db) => {
     db.query(query, parameters)
       .then((data) => {
         templateVars.user = data.rows;
-        res.render('createquiz', templateVars);
+        res.render('editquiz', templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -29,20 +30,19 @@ module.exports = (db) => {
   });
 
   router.post('/', (req, res) => {
-    console.log(req.session)
-    const query = `INSERT INTO quizzes (user_id, name, description, isPrivate) VALUES ($1, $2, $3, $4)
-    RETURNING *;`
-    const userId = req.session.user_id;
-    const queryParams = [userId, req.body.quizTitle, req.body.quizDesc, false]
-    db.query(query, queryParams)
-      .then(() => {
-        res.redirect('/editquiz');
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
+    console.log(req.body)
+    // const query = `INSERT INTO quizzes (user_id, name, description, isPrivate) VALUES ($1, $2, $3, $4)
+    // RETURNING *;`
+    // const userId = req.session.user_id;
+    // const queryParams = [userId, req.body.quizTitle, req.body.quizDesc, false]
+    // db.query(query, queryParams)
+    //   .then(() => {
+    //     res.redirect('/editquiz');
+    //   })
+    //   .catch((err) => {
+    //     res.status(500).json({ error: err.message });
+    //   });
   })
-
 
   return router;
 };

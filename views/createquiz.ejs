@@ -25,15 +25,15 @@
     <%- include('partials/header.ejs') %>
     <main>
       <div class="container py-4 ">
-        <div id="mainframe" class="container py-4 ">
           <!-- Creating Quiz -->
           <div class="p-5 mb-4 bg-light rounded-3">
             <h4 class="mb-3">Create a Kazoot Quiz Now!</h4>
-            <form class="needs-validation" novalidate>
+            <form action="/createquiz" method="post" class="needs-validation" novalidate>
               <div class="row g-3">
                 <div class="col-12">
                   <label for="" class="form-label">Name your Kazoot!</label>
                   <input
+                    name="quizTitle"
                     type="text"
                     class="form-control"
                     id="quizName"
@@ -45,6 +45,7 @@
                 <div class="col-12">
                   <label for="" class="form-label">About your Kazoot</label>
                   <textarea
+                    name="quizDesc"
                     type="text"
                     class="form-control"
                     id="quizDesc"
@@ -55,77 +56,13 @@
                     About your Kazoot is required
                   </div>
                   <hr class="my-4" />
-                  <button class="btn btn-primary btn-lg">Next</button>
+                  <button class="btn btn-primary btn-lg" method="post">Next</button>
                 </div>
               </div>
             </form>
           </div>
           <!-- End Creating Quiz -->
 
-          <!-- Making The Quiz -->
-          <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
-            <h4 class="mb-3">Question 1</h4>
-            <form class="needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-12">
-                  <label for="" class="form-label">Question</label>
-                  <textarea
-                    type="text"
-                    class="form-control"
-                    id=""
-                    placeholder=""
-                    required
-                  ></textarea>
-                  <div class="invalid-feedback">Question is required</div>
-                </div>
-
-                <div class="col-12">
-                  <label for="" class="form-label">Answer</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Answer"
-                    value=""
-                    required
-                  />
-                  <div class="invalid-feedback">Answer is required.</div>
-                </div>
-
-                <div class="col-12">
-                  <label for="" class="form-label">Option</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Option"
-                    value=""
-                    required
-                  />
-                  <div class="invalid-feedback">Option 1 is required.</div>
-                </div>
-                <div id= "answerOptions" class="col-12 answerOptions">
-                  <div class="input-group mb-3">
-                    <button class="btn btn-outline-danger delAns" type="button">
-                      Delete
-                    </button>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Option"
-                    />
-                  </div>
-                </div>
-                <div class="col-12">
-                  <a id="addAns" class="btn btn-secondary addAns"> Add Option </a>
-                </div>
-              </div>
-              <hr class="my-4" />
-            </form>
-
-          </div>
-
-        </div>
-        <button id="addQuestion" class="btn btn-secondary btn-lg m-2 addQuestion">Add More Questions</button>
-        <button id="createQuiz" class="btn btn-primary btn-lg ">Complete</button>
       </div>
     </main>
     <!-- Bootstrap JS -->

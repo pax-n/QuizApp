@@ -8,7 +8,7 @@ const pool = new Pool({
   database: 'midterm'
 });
 
-const addUser = function (user){
+const addUser = function (user) {
   return pool
   .querry(`INSERT INTO users(name,email,password)
   VALUES($1, $2, $3)
@@ -30,3 +30,4 @@ const login = function(email, password) {
   })
 }
 exports.login = login;
+

@@ -68,6 +68,7 @@ const quizpageRoutes = require('./routes/quizpage');
 const resultpageRoutes = require('./routes/resultpage');
 const resultpagePostRoutes = require('./routes/resultpage-post');
 const createquizRoutes = require('./routes/createquiz');
+const editQuizRoutes = require('./routes/editingQuiz')
 const userRoutes = require('./routes/user');
 const registerRoutes = require('./routes/register');
 const resetRoutes = require('./routes/reset');
@@ -89,6 +90,7 @@ app.use('/quizpage', quizpageRoutes(db));
 app.use('/resultpage', resultpageRoutes(db));
 app.use('/resultpage-post', urlencodedParser, resultpagePostRoutes(db));
 app.use('/createquiz', createquizRoutes(db));
+app.use('/editquiz', editQuizRoutes(db));
 app.use('/user', userRoutes(db));
 app.use('/register', registerRoutes(db));
 app.use('/reset', resetRoutes(db));
