@@ -32,19 +32,12 @@ module.exports = (db) => {
         let querynew = `SELECT * FROM answers WHERE question_id IN(${q_ids})`;
         db.query(querynew).then((data) => {
           templateVars.answers = data.rows;
-          //console.log(templateVars)
+          console.log(templateVars)
           db.query(user, userid)
             .then((data) => {
               templateVars.user = data.rows;
-              db.query(user, parameters)
-                .then((data) => {
-                  templateVars.author = data.rows;
-                  console.log('QUIZ Page:', templateVars);
-                  res.render('quizpage', templateVars);
-                })
-                .catch((err) => {
-                  res.status(500).json({ error: err.message });
-                });
+              // console.log('QUIZ Page:', templateVars);
+              res.render('quizpage', templateVars);
             })
             .catch((err) => {
               res.status(500).json({ error: err.message });
@@ -57,4 +50,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
