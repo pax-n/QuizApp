@@ -24,136 +24,108 @@
   <body>
     <%- include('partials/header.ejs') %>
     <main>
-      <div id="mainframe" class="container py-4 ">
-        <!-- Creating Quiz -->
-        <div class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Create a Kazoot Quiz Now!</h4>
-          <form class="needs-validation" novalidate>
-            <div class="row g-3">
-              <div class="col-12">
-                <label for="" class="form-label">Name your Kazoot!</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="quizName"
-                  required
-                />
-                <div class="invalid-feedback">Your Kazoot is required.</div>
-              </div>
-
-              <div class="col-12">
-                <label for="" class="form-label">About your Kazoot</label>
-                <textarea
-                  type="text"
-                  class="form-control"
-                  id="quizDesc"
-                  placeholder=""
-                  required
-                ></textarea>
-                <div class="invalid-feedback">
-                  About your Kazoot is required
+      <div class="container py-4 ">
+        <div id="mainframe" class="container py-4 ">
+          <!-- Creating Quiz -->
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <h4 class="mb-3">Create a Kazoot Quiz Now!</h4>
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="" class="form-label">Name your Kazoot!</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quizName"
+                    required
+                  />
+                  <div class="invalid-feedback">Your Kazoot is required.</div>
                 </div>
-                <hr class="my-4" />
-                <button class="btn btn-primary btn-lg">Next</button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <!-- End Creating Quiz -->
 
-        <!-- Making The Quiz -->
-        <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Question 1</h4>
-          <form class="needs-validation" novalidate>
-            <div class="row g-3">
-              <div class="col-12">
-                <label for="" class="form-label">Question</label>
-                <textarea
-                  type="text"
-                  class="form-control"
-                  id=""
-                  placeholder=""
-                  required
-                ></textarea>
-                <div class="invalid-feedback">Question is required</div>
+                <div class="col-12">
+                  <label for="" class="form-label">About your Kazoot</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="quizDesc"
+                    placeholder=""
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">
+                    About your Kazoot is required
+                  </div>
+                  <hr class="my-4" />
+                  <button class="btn btn-primary btn-lg">Next</button>
+                </div>
               </div>
+            </form>
+          </div>
+          <!-- End Creating Quiz -->
 
-              <div class="col-12">
-                <label for="" class="form-label">Answer</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Answer"
-                  value=""
-                  required
-                />
-                <div class="invalid-feedback">Answer is required.</div>
-              </div>
+          <!-- Making The Quiz -->
+          <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
+            <h4 class="mb-3">Question 1</h4>
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="" class="form-label">Question</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id=""
+                    placeholder=""
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">Question is required</div>
+                </div>
 
-              <div class="col-12">
-                <label for="" class="form-label">Option</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Option"
-                  value=""
-                  required
-                />
-                <div class="invalid-feedback">Option 1 is required.</div>
-              </div>
-              <div id= "answerOptions" class="col-12 answerOptions">
-                <div class="input-group mb-3">
-                  <button class="btn btn-outline-danger delAns" type="button">
-                    Delete
-                  </button>
+                <div class="col-12">
+                  <label for="" class="form-label">Answer</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Answer"
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">Answer is required.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="" class="form-label">Option</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Option"
+                    value=""
+                    required
                   />
+                  <div class="invalid-feedback">Option 1 is required.</div>
+                </div>
+                <div id= "answerOptions" class="col-12 answerOptions">
+                  <div class="input-group mb-3">
+                    <button class="btn btn-outline-danger delAns" type="button">
+                      Delete
+                    </button>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Option"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <a id="addAns" class="btn btn-secondary addAns"> Add Option </a>
                 </div>
               </div>
-              <div class="col-12">
-                <a id="addAns" class="btn btn-secondary addAns"> Add Option </a>
-              </div>
-            </div>
-            <hr class="my-4" />
-          </form>
+              <hr class="my-4" />
+            </form>
 
-        </div>
-
-        <button id="addQuestion" class="btn btn-secondary btn-lg addQuestion">Add More Questions</button>
-        <button id="createQuiz" class="btn btn-primary btn-lg">Complete</button>
-        <!-- End Making The Quiz -->
-
-        <!-- Result Page -->
-        <!--
-        <div class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Your Result!</h4>
-          <div class="card">
-            <h5 class="card-header">Quiz Title</h5>
-            <div class="card-body">
-              <h5 class="card-title">Number of Questions: 5</h5>
-              <p class="card-text">
-                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
-                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
-                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz
-                Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info Quiz Info
-                Quiz Info Quiz Info Quiz Info
-              </p>
-              <a href="#" class="btn btn-primary">Start Quiz</a>
-            </div>
-            <div class="card-footer text-muted">
-              <a href="">Author[User Name]</a>
-              <a href="#" class="btn btn-primary badge">Share</a>
-              <a href="#" class="btn btn-primary badge">Attempt</a>
-            </div>
           </div>
+
         </div>
-        -->
-        <!-- End Result Page -->
+        <button id="addQuestion" class="btn btn-secondary btn-lg m-2 addQuestion">Add More Questions</button>
+        <button id="createQuiz" class="btn btn-primary btn-lg ">Complete</button>
       </div>
     </main>
     <!-- Bootstrap JS -->

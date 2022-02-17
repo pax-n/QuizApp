@@ -1,38 +1,34 @@
 // Client facing scripts here
 $(document).ready(function() {
 
-  //adds an answer option to question box
-  // $( "#addAns" ).on('click', function() {
-  //   console.log("Add Answer");
-  //   const $answer = answerTextBoxElement();
-  //   $('#answerOptions').append($answer);
-  //  })
   let arrayOfQuestions = 1;
-   $( document.body ).on('click', ".addAns", function(event) {
+
+  //option add another fake answer
+  $( document.body ).on('click', ".addAns", function(event) {
     const thisElement = $(event.target)
     console.log("Add Answer");
     const $answer = answerTextBoxElement();
     const auntElement = thisElement.parent().siblings("#answerOptions");
     console.log (auntElement)
     $(auntElement, thisElement).append($answer);
-   })
+  })
 
-   //deletes selected answer option
-   $( document.body ).on('click', ".delAns", function(event) {
+  //deletes selected answer option
+  $( document.body ).on('click', ".delAns", function(event) {
     const thisElement = $(event.target)
     console.log (thisElement);
     console.log("Delete Answer");
     const parentElement = thisElement.parent();
     $(parentElement, thisElement).remove();
-   })
+  })
 
    //adds a question box to page
   $( "#addQuestion").on('click', function() {
     const $questionbox = questionBoxElement();
-    $('#question-box').after($questionbox);
+    $('#mainframe').append($questionbox);
     arrayOfQuestions++;
     console.log(arrayOfQuestions);
-   })
+  })
 
   //deletes a selected question box off the page
   $( document.body ).on('click', ".deleteQuestion", function(event) {
@@ -46,7 +42,7 @@ $(document).ready(function() {
   })
 
 
-   const answerTextBoxElement = function () {
+  const answerTextBoxElement = function () {
     let $answer = `
     <div id= "answerOptions" class="col-12 answerOptions">
       <div class="input-group mb-3">
@@ -62,10 +58,10 @@ $(document).ready(function() {
     </div>
     `
     return $answer;
-   }
+  }
 
-   const questionBoxElement = function () {
-     let $questionbox = `
+  const questionBoxElement = function () {
+    let $questionbox = `
 
      <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
           <h4 class="mb-3">Question ${arrayOfQuestions + 1}</h4>
@@ -128,8 +124,8 @@ $(document).ready(function() {
 
         </div>
      `
-     return $questionbox
-   }
+    return $questionbox
+  }
 
 });
 
