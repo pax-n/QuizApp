@@ -32,11 +32,11 @@ module.exports = (db) => {
         let querynew = `SELECT * FROM answers WHERE question_id IN(${q_ids})`;
         db.query(querynew).then((data) => {
           templateVars.answers = data.rows;
-          //console.log(templateVars)
+          console.log(templateVars)
           db.query(user, userid)
             .then((data) => {
               templateVars.user = data.rows;
-              console.log('QUIZ Page:', templateVars);
+              // console.log('QUIZ Page:', templateVars);
               res.render('quizpage', templateVars);
             })
             .catch((err) => {
@@ -50,4 +50,3 @@ module.exports = (db) => {
   });
   return router;
 };
-
