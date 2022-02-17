@@ -24,7 +24,7 @@
   <body>
     <%- include('partials/header.ejs') %>
     <main>
-      <div class="container py-4">
+      <div id="mainframe" class="container py-4 ">
         <!-- Creating Quiz -->
         <div class="p-5 mb-4 bg-light rounded-3">
           <h4 class="mb-3">Create a Kazoot Quiz Now!</h4>
@@ -63,7 +63,7 @@
 
         <!-- Making The Quiz -->
         <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Default Question</h4>
+          <h4 class="mb-3">Question 1</h4>
           <form class="needs-validation" novalidate>
             <div class="row g-3">
               <div class="col-12">
@@ -91,11 +91,11 @@
               </div>
 
               <div class="col-12">
-                <label for="" class="form-label">Option 1</label>
+                <label for="" class="form-label">Option</label>
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Option 1"
+                  placeholder="Option"
                   value=""
                   required
                 />
@@ -121,6 +121,7 @@
           </form>
 
         </div>
+
         <button id="addQuestion" class="btn btn-secondary btn-lg addQuestion">Add More Questions</button>
         <button id="createQuiz" class="btn btn-primary btn-lg">Complete</button>
         <!-- End Making The Quiz -->

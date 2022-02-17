@@ -7,14 +7,14 @@ $(document).ready(function() {
   //   const $answer = answerTextBoxElement();
   //   $('#answerOptions').append($answer);
   //  })
-
+  let arrayOfQuestions = 1;
    $( document.body ).on('click', ".addAns", function(event) {
     const thisElement = $(event.target)
-    console.log (thisElement);
     console.log("Add Answer");
     const $answer = answerTextBoxElement();
-    const parentElement = thisElement.parent();
-    $(parentElement, thisElement).prepend($answer);
+    const auntElement = thisElement.parent().siblings("#answerOptions");
+    console.log (auntElement)
+    $(auntElement, thisElement).append($answer);
    })
 
    //deletes selected answer option
@@ -30,6 +30,8 @@ $(document).ready(function() {
   $( "#addQuestion").on('click', function() {
     const $questionbox = questionBoxElement();
     $('#question-box').after($questionbox);
+    arrayOfQuestions++;
+    console.log(arrayOfQuestions);
    })
 
   //deletes a selected question box off the page
@@ -39,12 +41,14 @@ $(document).ready(function() {
     console.log(thisElement);
     const grandParentElement = thisElement.parent().parent();
     $(grandParentElement, thisElement).remove();
+    arrayOfQuestions--;
+    console.log(arrayOfQuestions);
   })
 
 
    const answerTextBoxElement = function () {
     let $answer = `
-    <div id= "answerOptions" class="col-12">
+    <div id= "answerOptions" class="col-12 answerOptions">
       <div class="input-group mb-3">
         <button id="delAns" class="btn btn-outline-danger delAns" type="button">
           Delete
@@ -64,7 +68,7 @@ $(document).ready(function() {
      let $questionbox = `
 
      <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">New Question</h4>
+          <h4 class="mb-3">Question ${arrayOfQuestions + 1}</h4>
           <form class="needs-validation" novalidate>
             <div class="row g-3">
               <div class="col-12">
