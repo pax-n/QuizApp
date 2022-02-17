@@ -4,11 +4,9 @@
  *   these routes are mounted onto /widgets
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
-
 const express = require('express');
 const { param } = require('express/lib/request');
 const router = express.Router();
-
 module.exports = (db) => {
   router.get('/:quiz_id', (req, res) => {
     // cookie-session middleware
@@ -19,7 +17,6 @@ module.exports = (db) => {
     const templateVars = {};
     let user = `SELECT * FROM users WHERE id = $1`;
     const userid = [req.session.user_id];
-
     let query = `SELECT * FROM questions WHERE quiz_id = $1`;
     const parameters = [req.params.quiz_id];
     db.query(query, parameters)
@@ -32,12 +29,19 @@ module.exports = (db) => {
         let querynew = `SELECT * FROM answers WHERE question_id IN(${q_ids})`;
         db.query(querynew).then((data) => {
           templateVars.answers = data.rows;
-          console.log(templateVars)
+          //console.log(templateVars)
           db.query(user, userid)
             .then((data) => {
               templateVars.user = data.rows;
-              // console.log('QUIZ Page:', templateVars);
-              res.render('quizpage', templateVars);
+              db.query(user, parameters)
+                .then((data) => {
+                  templateVars.author = data.rows;
+                  console.log('QUIZ Page:', templateVars);
+                  res.render('quizpage', templateVars);
+                })
+                .catch((err) => {
+                  res.status(500).json({ error: err.message });
+                });
             })
             .catch((err) => {
               res.status(500).json({ error: err.message });
