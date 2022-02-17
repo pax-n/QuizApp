@@ -101,7 +101,10 @@
                 ></a>
               </li>
               <li class="list-group-item list-group-item-success">
-                Request LinkedIn skill endorse
+                Request LinkedIn skill endorse <% if(!Object.keys(user).length){
+                %>
+                <a href="/login/1" class="btn btn-primary badge">LOGIN</a>
+                <% } else { %>
                 <a
                   href="mailto:<%= user[0].email %>"
                   class="btn btn-primary badge"
@@ -132,6 +135,7 @@
                   class="btn btn-primary badge"
                   >SASS</a
                 >
+                <% }%>
               </li>
             </ul>
           </div>

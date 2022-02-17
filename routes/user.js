@@ -20,15 +20,39 @@ module.exports = (db) => {
     const parameters = [req.session.user_id];
 
     let quiz = `SELECT * FROM quizzes INNER JOIN attempts ON quizzes.id = attempts.quiz_id`;
+    let question = `SELECT * FROM questions`;
+    let edit = `SELECT * FROM quizzes`;
 
     db.query(quiz)
       .then((data) => {
         templateVars.quiz = data.rows;
-        db.query(query, parameters)
+        db.query(question)
           .then((data) => {
-            templateVars.user = data.rows;
-            console.log('QUIZZZZZZZ', templateVars);
-            res.render('user', templateVars);
+            templateVars.question = data.rows;
+            const count = {};
+
+            templateVars.question.forEach(function (i) {
+              // console.log(i.quiz_id);
+              count[i.quiz_id] = (count[i.quiz_id] || 0) + 1;
+            });
+            console.log(count);
+            templateVars.count = count;
+            db.query(edit)
+              .then((data) => {
+                templateVars.edit = data.rows;
+                db.query(query, parameters)
+                  .then((data) => {
+                    templateVars.user = data.rows;
+                    console.log('QUIZZZZZZZ', templateVars);
+                    res.render('user', templateVars);
+                  })
+                  .catch((err) => {
+                    res.status(500).json({ error: err.message });
+                  });
+              })
+              .catch((err) => {
+                res.status(500).json({ error: err.message });
+              });
           })
           .catch((err) => {
             res.status(500).json({ error: err.message });

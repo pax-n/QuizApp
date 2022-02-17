@@ -37,17 +37,18 @@
               </tr>
             </thead>
             <tbody>
-              <% for(let arr in quiz) { %>
+              <% let scoreIndex = 1; for(let i = 0; i< quiz.length; i++) { %> <%
+              if(quiz[i].user_id === user[0].id) { %>
               <tr>
-                <th scope="row"><%= quiz[arr].id %></th>
+                <th scope="row"><%= scoreIndex %></th>
                 <td>
-                  <a href="/quizpage/<%= quiz[arr].quiz_id %>"
-                    ><%= quiz[arr].description %></a
+                  <a href="/quizpage/<%= quiz[i].quiz_id %>"
+                    ><%= quiz[i].description %></a
                   >
                 </td>
-                <td><%= quiz[arr].score %>/5</td>
+                <td><%= quiz[i].score %>/<%= count[quiz[i].quiz_id] %></td>
               </tr>
-              <% } %>
+              <% scoreIndex++; }} %>
             </tbody>
           </table>
           <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -239,18 +240,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% for(let arr in quiz) { %>
+                  <% let editIndex = 1; for(let z = 0; z< edit.length; z++) { %>
+                  <% if(edit[z].user_id === user[0].id) { %>
                   <tr>
-                    <th scope="row"><%= quiz[arr].id %></th>
+                    <th scope="row"><%= editIndex %></th>
                     <td>
-                      <a href="/quizpage/<%= quiz[arr].quiz_id %>"
-                        ><%= quiz[arr].description %></a
+                      <a href="/quizpage/<%= edit[z].user_id %>"
+                        ><%= edit[z].description %></a
                       >
                     </td>
                     <td><a href="" class="btn btn-primary badge">Edit</a></td>
                     <td><a href="" class="btn btn-danger badge">Delete</a></td>
                   </tr>
-                  <% } %>
+                  <% editIndex++; }} %>
                 </tbody>
               </table>
             </div>
