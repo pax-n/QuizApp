@@ -47,7 +47,7 @@ module.exports = (db) => {
       return db.query(wrongAnswerQuery, wrongAnswerParams);
     }).then((results)=> {
       console.log("successful new answers", results.rows);
-      // res.status(200).json({ questionID })
+      return res.status(200).json({ questionID })
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

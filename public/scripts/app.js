@@ -16,6 +16,7 @@ $(document).ready(function() {
       method: 'post',
       success: function(data) {
         console.log("successful form submssion", data)
+        location.reload()
       }
     });
   })
@@ -57,6 +58,14 @@ $(document).ready(function() {
     $(grandParentElement, thisElement).remove();
     arrayOfQuestions--;
     console.log(arrayOfQuestions);
+  })
+
+  //redirects to homepage
+  $( document.body ).on('click', ".finishCreate", function(event) {
+    const thisElement = $(event.target)
+    console.log("Complete");
+    console.log(thisElement);
+    window.location.replace('/');
   })
 
 
