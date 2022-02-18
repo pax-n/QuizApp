@@ -25,20 +25,20 @@
     <%- include('partials/header.ejs') %>
     <main>
       <div class="container py-4 ">
-        <form action="/editquiz" method="post" class="needs-validation" novalidate></form>
-        <div id="mainframe" class="container py-4 ">
+        <form data-quizID="<%= quizID %>" id="editQuizForm" action="/editquiz" method="post" class="needs-validation" novalidate>
 
+        <div id="mainframe" class="container py-4 ">
           <!-- Making The Quiz -->
           <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
             <h4 class="mb-3">Question 1</h4>
-
               <div class="row g-3">
                 <div class="col-12">
                   <label for="" class="form-label">Question</label>
                   <textarea
+                    name="question"
                     type="text"
                     class="form-control"
-                    id=""
+                    id="question"
                     placeholder=""
                     required
                   ></textarea>
@@ -48,6 +48,7 @@
                 <div class="col-12">
                   <label for="" class="form-label">Answer</label>
                   <input
+                    name="realAns"
                     type="text"
                     class="form-control"
                     placeholder="Answer"
@@ -56,10 +57,11 @@
                   />
                   <div class="invalid-feedback">Answer is required.</div>
                 </div>
-
+                <!--
                 <div class="col-12">
                   <label for="" class="form-label">Option</label>
                   <input
+                    name="fakeAns"
                     type="text"
                     class="form-control"
                     placeholder="Option"
@@ -68,12 +70,14 @@
                   />
                   <div class="invalid-feedback">Option 1 is required.</div>
                 </div>
+                -->
                 <div id= "answerOptions" class="col-12 answerOptions">
                   <div class="input-group mb-3">
                     <button class="btn btn-outline-danger delAns" type="button">
                       Delete
                     </button>
                     <input
+                      name="newFakeAns"
                       type="text"
                       class="form-control"
                       placeholder="Option"
@@ -86,14 +90,14 @@
               </div>
               <hr class="my-4" />
 
+            </div>
 
           </div>
+          <button id="addQuestion" class="btn btn-secondary btn-lg m-2 addQuestion">Add More Questions</button>
 
+          <button id="createQuiz" class="btn btn-primary btn-lg" type="submit">Complete</button>
+        </form>
         </div>
-        <button id="addQuestion" class="btn btn-secondary btn-lg m-2 addQuestion">Add More Questions</button>
-        <button id="createQuiz" class="btn btn-primary btn-lg" method="post">Complete</button>
-      </form>
-      </div>
     </main>
     <!-- Bootstrap JS -->
     <script

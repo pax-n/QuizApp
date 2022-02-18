@@ -3,6 +3,25 @@ $(document).ready(function() {
 
   let arrayOfQuestions = 1;
 
+  $("#editQuizForm" ).on('submit', function(event) {
+    event.preventDefault();
+    console.log("Form.submit", event.target)
+    // const serialize = $(this)
+    const form = $(event.target);
+    const quizID = form.data("quizid");
+    console.log(quizID);
+    console.log(form.serialize())
+    $.ajax({
+      url: `/api/quizzes/${quizID}/questions`,
+      data: form.serialize(),
+      method: 'post',
+      success: function(data) {
+        console.log("successful form submssion", data)
+      }
+    });
+  })
+
+
   //option add another fake answer
   $( document.body ).on('click', ".addAns", function(event) {
     const thisElement = $(event.target)
@@ -50,6 +69,7 @@ $(document).ready(function() {
           Delete
         </button>
         <input
+          name="newFakeAns"
           type="text"
           class="form-control"
           placeholder="Option"
@@ -62,67 +82,70 @@ $(document).ready(function() {
 
   const questionBoxElement = function () {
     let $questionbox = `
+    <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
+            <h4 class="mb-3">Question ${arrayOfQuestions + 1}</h4>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="" class="form-label">Question</label>
+                  <textarea
+                    name="question"
+                    type="text"
+                    class="form-control"
+                    id=""
+                    placeholder=""
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">Question is required</div>
+                </div>
 
-     <div id="question-box" class="p-5 mb-4 bg-light rounded-3">
-          <h4 class="mb-3">Question ${arrayOfQuestions + 1}</h4>
-          <form class="needs-validation" novalidate>
-            <div class="row g-3">
-              <div class="col-12">
-                <label for="" class="form-label">Question</label>
-                <textarea
-                  type="text"
-                  class="form-control"
-                  id=""
-                  placeholder=""
-                  required
-                ></textarea>
-                <div class="invalid-feedback">Question is required</div>
-              </div>
-
-              <div class="col-12">
-                <label for="" class="form-label">Answer</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Answer"
-                  value=""
-                  required
-                />
-                <div class="invalid-feedback">Answer is required.</div>
-              </div>
-
-              <div class="col-12">
-                <label for="" class="form-label">Option 1</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Option 1"
-                  value=""
-                  required
-                />
-                <div class="invalid-feedback">Option 1 is required.</div>
-              </div>
-              <div id= "answerOptions" class="col-12">
-                <div class="input-group mb-3">
-                  <button class="btn btn-outline-danger delAns" type="button">
-                    Delete
-                  </button>
+                <div class="col-12">
+                  <label for="" class="form-label">Answer</label>
                   <input
+                    name="realAns"
+                    type="text"
+                    class="form-control"
+                    placeholder="Answer"
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">Answer is required.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="" class="form-label">Option</label>
+                  <input
+                    name="fakeAns"
                     type="text"
                     class="form-control"
                     placeholder="Option"
+                    value=""
+                    required
                   />
+                  <div class="invalid-feedback">Option 1 is required.</div>
+                </div>
+                <div id= "answerOptions" class="col-12 answerOptions">
+                  <div class="input-group mb-3">
+                    <button class="btn btn-outline-danger delAns" type="button">
+                      Delete
+                    </button>
+                    <input
+                      name="newFakeAns"
+                      type="text"
+                      class="form-control"
+                      placeholder="Option"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <a id="addAns" class="btn btn-secondary addAns"> Add Option </a>
                 </div>
               </div>
-              <div class="col-12">
-                <a id="addAns" class="btn btn-secondary addAns"> Add Option </a>
-              </div>
+              <hr class="my-4" />
+              <button id="deleteQuestion" class="btn btn-danger btn-lg deleteQuestion">Delete</button>
             </div>
-            <hr class="my-4" />
-            <button id="deleteQuestion" class="btn btn-danger btn-lg deleteQuestion">Delete</button>
-          </form>
 
-        </div>
+          </div>
+
      `
     return $questionbox
   }

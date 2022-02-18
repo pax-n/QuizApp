@@ -35,8 +35,9 @@ module.exports = (db) => {
     const userId = req.session.user_id;
     const queryParams = [userId, req.body.quizTitle, req.body.quizDesc, false]
     db.query(query, queryParams)
-      .then(() => {
-        res.redirect('/editquiz');
+      .then((result) => {
+        const quizID = result.rows[0].id;
+        res.redirect(`/editquiz/${quizID}`);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
