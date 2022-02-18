@@ -62,7 +62,7 @@ The following steps are only for _one_ of the group members to perform.
 - jQuery
 - PostgreSQL
 
-!["Screenshot of PostgreSQL"](/blob/master/planing/ERD1.png)
+!["Screenshot of PostgreSQL"](planing/ERD1.png)
 
 ## Contact the Contributors
 
