@@ -6,7 +6,6 @@ $(document).ready(function() {
   $("#editQuizForm" ).on('submit', function(event) {
     event.preventDefault();
     console.log("Form.submit", event.target)
-    // const serialize = $(this)
     const form = $(event.target);
     const quizID = form.data("quizid");
     console.log(quizID);
@@ -110,19 +109,6 @@ $(document).ready(function() {
                   />
                   <div class="invalid-feedback">Answer is required.</div>
                 </div>
-
-                <div class="col-12">
-                  <label for="" class="form-label">Option</label>
-                  <input
-                    name="fakeAns"
-                    type="text"
-                    class="form-control"
-                    placeholder="Option"
-                    value=""
-                    required
-                  />
-                  <div class="invalid-feedback">Option 1 is required.</div>
-                </div>
                 <div id= "answerOptions" class="col-12 answerOptions">
                   <div class="input-group mb-3">
                     <button class="btn btn-outline-danger delAns" type="button">
@@ -141,7 +127,6 @@ $(document).ready(function() {
                 </div>
               </div>
               <hr class="my-4" />
-              <button id="deleteQuestion" class="btn btn-danger btn-lg deleteQuestion">Delete</button>
             </div>
 
           </div>

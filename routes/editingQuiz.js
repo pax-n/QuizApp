@@ -29,9 +29,9 @@ module.exports = (db) => {
       });
   });
 
-  router.post('/', (req, res) => {
-    console.log(req.body)
-    console.log(req.session.user_id)
+  router.post('/:quizID/', (req, res) => {
+    console.log("reqbody:", req.body)
+    console.log("reqsession:", req.session.user_id)
     // const query = `
     // INSERT INTO questions (quiz_id, question VALUES ($1, $2)
     // RETURNING *;`

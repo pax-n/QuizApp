@@ -31,7 +31,6 @@ module.exports = (db) => {
     const questionParams = [quizID, question]
     let questionID;
     console.log("create question", req.body)
-    console.log("questionQuery is", questionQuery)
     console.log("QuestionParams is", questionParams)
     db.query (questionQuery, questionParams)
     .then((result) => {
@@ -48,19 +47,19 @@ module.exports = (db) => {
       return db.query(wrongAnswerQuery, wrongAnswerParams);
     }).then((results)=> {
       console.log("successful new answers", results.rows);
-      res.status(200).json({ questionID })
+      // res.status(200).json({ questionID })
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
   })
 
-  router.delete('/:quizid/questions/:questionid', (req, res) => {
+  // router.delete('/:quizid/questions/:questionid', (req, res) => {
 
-  })
+  // })
 
-  router.put('/:quizid/questions/:questionid', (req, res) => {
+  // router.put('/:quizid/questions/:questionid', (req, res) => {
 
-  })
+  // })
   return router;
 };
