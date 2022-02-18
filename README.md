@@ -1,4 +1,14 @@
-# LHL Node Skeleton
+# Quiz App
+
+### Main Contributors: [Mikiyoshi Kokura](https://github.com/mikiyoshi), [Pouya Elishaee](https://github.com/Paules2021), [Paxton Nguyen](https://github.com/pax-n)
+
+## Overview
+
+For this group project, we created simple quiz app called Kazoot!
+This app users can take a simple quiz and make a original quiz. Users also have a profile that can inform other users as a quiz author. For now people work from home, take a online school or take a online job interview. So we are difficult physical small talk with someone by accident.
+But this app can support small talk by online. When you take the quiz, users can post to author LinkedIn recommendation and skills. Users also request social connection or share your quiz. This is not a very strong professional skills refference, but If someone didn’t have professional skills work experience, it will be support in your first step.
+
+## Final Product
 
 ## Project Setup
 
@@ -28,11 +38,11 @@ The following steps are only for _one_ of the group members to perform.
 
 - Check the db folder to see what gets created and seeded in the SDB
 
-7. Run the server: `npm run local`
+9. Run the server: `npm run local`
 
 - Note: nodemon is used, so you should not have to restart your server
 
-8. Visit `http://localhost:8080/`
+10. Visit `http://localhost:8080/`
 
 ## Warnings & Tips
 
@@ -48,3 +58,12 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- Express
+- jQuery
+- PostgreSQL
+
+!["Screenshot of PostgreSQL"](planing/ERD1.png)
+
+## Contact the Contributors
+
+Questions? Comments? Want to contribute to this? Feel free to contact any of the contributors of this repo.
